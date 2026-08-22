@@ -23,7 +23,7 @@ function Block({ block }: { block: DocBlock }) {
       );
     case "h":
       return (
-        <h3 className="mt-8 scroll-mt-24 text-lg font-semibold tracking-tight text-foreground">
+        <h3 className="mt-8 scroll-mt-24 text-lg font-semibold tracking-tight text-fg">
           {block.text}
         </h3>
       );
@@ -37,7 +37,7 @@ function Block({ block }: { block: DocBlock }) {
               key={i}
               className="flex items-start gap-2.5 text-[15px] leading-relaxed text-fg-muted"
             >
-              <span className="mt-2 size-1 shrink-0 rounded-full bg-cs-accent" />
+              <span className="mt-2 size-1 shrink-0 rounded-full bg-accent" />
               {item}
             </li>
           ))}
@@ -50,27 +50,27 @@ function Block({ block }: { block: DocBlock }) {
           className={cn(
             "flex items-start gap-3 rounded-lg border p-4",
             isWarn
-              ? "border-cs-unknown/30 bg-cs-unknown/[0.05]"
-              : "border-cs-accent/25 bg-cs-accent/[0.05]"
+              ? "border-warning/30 bg-surface"
+              : "border-accent/30 bg-surface"
           )}
         >
           {isWarn ? (
-            <AlertTriangle className="mt-0.5 size-4 shrink-0 text-cs-unknown" />
+            <AlertTriangle className="mt-0.5 size-4 shrink-0 text-warning" />
           ) : (
-            <Info className="mt-0.5 size-4 shrink-0 text-cs-accent" />
+            <Info className="mt-0.5 size-4 shrink-0 text-accent" />
           )}
           <div>
             {block.title && (
               <div
                 className={cn(
                   "font-mono text-[11px] uppercase tracking-[0.16em]",
-                  isWarn ? "text-cs-unknown" : "text-cs-accent"
+                  isWarn ? "text-warning" : "text-accent"
                 )}
               >
                 {block.title}
               </div>
             )}
-            <p className="mt-1 text-sm leading-relaxed text-foreground/90">
+            <p className="mt-1 text-sm leading-relaxed text-fg/90">
               {block.text}
             </p>
           </div>
@@ -119,14 +119,14 @@ export function DocsView() {
                       className={cn(
                         "group flex items-center gap-3 rounded-md px-3 py-2 text-left text-sm transition-colors",
                         isActive
-                          ? "bg-cs-surface-2 text-foreground"
-                          : "text-fg-muted hover:bg-cs-surface-2/50 hover:text-foreground"
+                          ? "bg-surface-elevated text-fg"
+                          : "text-fg-muted hover:bg-surface-elevated/50 hover:text-fg"
                       )}
                     >
                       <span
                         className={cn(
                           "font-mono text-[11px]",
-                          isActive ? "text-cs-accent" : "text-fg-subtle"
+                          isActive ? "text-accent" : "text-fg-subtle"
                         )}
                       >
                         {String(i + 1).padStart(2, "0")}
@@ -141,16 +141,16 @@ export function DocsView() {
 
           {/* Content */}
           <div className="lg:col-span-9">
-            <article className="rounded-xl border border-border bg-cs-surface-1 p-6 md:p-10">
+            <article className="rounded-lg border border-border bg-surface p-6 md:p-10">
               <Reveal key={active.id}>
                 <div className="mb-2 flex items-center gap-3">
-                  <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-cs-accent">
+                  <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-accent">
                     {String(activeIndex + 1).padStart(2, "0")} /{" "}
                     {String(DOC_SECTIONS.length).padStart(2, "0")}
                   </span>
                   <span className="h-px flex-1 bg-border" />
                 </div>
-                <h2 className="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+                <h2 className="text-2xl font-semibold tracking-tight text-fg md:text-3xl">
                   {active.title}
                 </h2>
                 <p className="mt-2 text-sm leading-relaxed text-fg-muted">
@@ -170,7 +170,7 @@ export function DocsView() {
                 <button
                   type="button"
                   onClick={() => setActiveId(DOC_SECTIONS[activeIndex - 1].id)}
-                  className="group inline-flex items-center gap-2 rounded-md border border-border bg-cs-surface-1 px-4 py-2.5 text-sm text-fg-muted transition-colors hover:text-foreground"
+                  className="group inline-flex items-center gap-2 rounded-md border border-border bg-surface px-4 py-2.5 text-sm text-fg-muted transition-colors hover:text-fg"
                 >
                   <span aria-hidden>←</span>
                   <span className="flex flex-col items-start">
@@ -187,7 +187,7 @@ export function DocsView() {
                 <button
                   type="button"
                   onClick={() => setActiveId(DOC_SECTIONS[activeIndex + 1].id)}
-                  className="group inline-flex items-center gap-2 rounded-md border border-border bg-cs-surface-1 px-4 py-2.5 text-sm text-fg-muted transition-colors hover:text-foreground"
+                  className="group inline-flex items-center gap-2 rounded-md border border-border bg-surface px-4 py-2.5 text-sm text-fg-muted transition-colors hover:text-fg"
                 >
                   <span className="flex flex-col items-end text-right">
                     <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-fg-subtle">

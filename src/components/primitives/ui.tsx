@@ -62,9 +62,7 @@ export function Eyebrow({
         className
       )}
     >
-      {bar && (
-        <span className="h-px w-7 bg-gradient-to-r from-cs-accent/70 to-cs-accent/0" />
-      )}
+      {bar && <span className="h-px w-6 bg-accent" aria-hidden />}
       {children}
     </span>
   );
@@ -93,7 +91,7 @@ export function SectionHeader({
       )}
     >
       {eyebrow && <Eyebrow bar={!centered}>{eyebrow}</Eyebrow>}
-      <h2 className="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+      <h2 className="text-2xl font-semibold tracking-tight text-fg md:text-3xl">
         {title}
       </h2>
       {description && (
@@ -134,25 +132,12 @@ export function MonoLabel({
 /*  Evidence semantics                                                 */
 /* ------------------------------------------------------------------ */
 
+// Evidence tags: no tinted fill — a plain border, a colored dot, colored mono text.
+// The color is the signal; the container stays quiet.
 const EVIDENCE_STYLES = {
-  observed: {
-    dot: "bg-cs-observed",
-    text: "text-cs-observed",
-    border: "border-cs-observed/30",
-    bg: "bg-cs-observed/10",
-  },
-  inferred: {
-    dot: "bg-cs-inferred",
-    text: "text-cs-inferred",
-    border: "border-cs-inferred/30",
-    bg: "bg-cs-inferred/10",
-  },
-  unknown: {
-    dot: "bg-cs-unknown",
-    text: "text-cs-unknown",
-    border: "border-cs-unknown/30",
-    bg: "bg-cs-unknown/10",
-  },
+  observed: { dot: "bg-success", text: "text-success" },
+  inferred: { dot: "bg-accent", text: "text-accent" },
+  unknown: { dot: "bg-warning", text: "text-warning" },
 } as const;
 
 export type EvidenceState = keyof typeof EVIDENCE_STYLES;
@@ -170,14 +155,12 @@ export function EvidenceBadge({
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-2 rounded-md border px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.16em]",
-        s.border,
-        s.bg,
+        "inline-flex items-center gap-2 border-b border-border pb-0.5 font-mono text-[11px] uppercase tracking-[0.16em]",
         s.text,
         className
       )}
     >
-      <span className={cn("size-1.5 rounded-full", s.dot)} />
+      <span className={cn("size-1.5 rounded-full", s.dot)} aria-hidden />
       {label ?? state}
     </span>
   );
@@ -231,12 +214,12 @@ export function Pipeline({
           key={stage.label}
           className="flex flex-col items-stretch gap-3 md:flex-row md:items-center md:gap-2"
         >
-          <div className="flex min-w-0 flex-1 items-center gap-3 rounded-md border border-border bg-cs-surface-1 px-4 py-3">
+          <div className="flex min-w-0 flex-1 items-center gap-3 rounded-md border border-border bg-surface px-4 py-3">
             <span className="font-mono text-[11px] tabular-nums text-fg-subtle">
               {String(i + 1).padStart(2, "0")}
             </span>
             <span className="flex flex-col">
-              <span className="text-sm font-medium text-foreground">
+              <span className="text-sm font-medium text-fg">
                 {stage.label}
               </span>
               {stage.sub && (
@@ -275,16 +258,11 @@ export function PageHeader({
   children?: ReactNode;
 }) {
   return (
-    <header className="relative overflow-hidden border-b border-border">
-      <div className="cs-grid-bg absolute inset-0 opacity-50" aria-hidden />
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cs-accent/40 to-transparent"
-        aria-hidden
-      />
-      <Container className="relative py-16 md:py-24">
+    <header className="border-b border-border bg-surface">
+      <Container className="py-16 md:py-24">
         <div className="flex flex-col gap-5">
           <Eyebrow>{eyebrow}</Eyebrow>
-          <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
+          <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-fg md:text-5xl">
             {title}
           </h1>
           {description && (
@@ -311,7 +289,7 @@ export function CodeBlock({
   lang?: string;
 }) {
   return (
-    <div className="overflow-hidden rounded-lg border border-border bg-cs-surface-1">
+    <div className="overflow-hidden rounded-lg border border-border bg-surface">
       <div className="flex items-center justify-between border-b border-border px-4 py-2">
         <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-fg-subtle">
           {lang}
@@ -319,7 +297,7 @@ export function CodeBlock({
         <CopyButton text={code} />
       </div>
       <pre className="overflow-x-auto p-4 text-[13px] leading-relaxed">
-        <code className="font-mono text-foreground/90">{code}</code>
+        <code className="font-mono text-fg/90">{code}</code>
       </pre>
     </div>
   );
@@ -341,7 +319,7 @@ export function InfoRow({
       </dt>
       <dd
         className={cn(
-          "text-right text-sm text-foreground/90",
+          "text-right text-sm text-fg/90",
           mono && "font-mono",
           "break-words"
         )}
@@ -366,7 +344,7 @@ export function Stat({
       <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-fg-subtle">
         {label}
       </span>
-      <span className="text-2xl font-semibold tracking-tight text-foreground">
+      <span className="text-2xl font-semibold tracking-tight text-fg">
         {value}
       </span>
       {hint && <span className="text-xs text-fg-subtle">{hint}</span>}
@@ -376,7 +354,7 @@ export function Stat({
 
 export function Kbd({ children }: { children: ReactNode }) {
   return (
-    <kbd className="rounded border border-cs-border-strong bg-cs-surface-2 px-1.5 py-0.5 font-mono text-[11px] text-fg-muted">
+    <kbd className="rounded border border-border-strong bg-surface-elevated px-1.5 py-0.5 font-mono text-[11px] text-fg-muted">
       {children}
     </kbd>
   );
@@ -421,16 +399,17 @@ export function StatusChip({
   tone?: "neutral" | "accent" | "amber" | "observed";
   className?: string;
 }) {
+  // Quiet tag: thin border, no fill. Color comes only from the text.
   const tones = {
-    neutral: "border-border bg-cs-surface-1 text-fg-muted",
-    accent: "border-cs-accent/30 bg-cs-accent/10 text-cs-accent",
-    amber: "border-cs-unknown/30 bg-cs-unknown/10 text-cs-unknown",
-    observed: "border-cs-observed/30 bg-cs-observed/10 text-cs-observed",
+    neutral: "border-border text-fg-muted",
+    accent: "border-border text-accent",
+    amber: "border-border text-warning",
+    observed: "border-border text-success",
   } as const;
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-2 rounded-md border px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.16em]",
+        "inline-flex items-center gap-2 border-b border-border pb-0.5 font-mono text-[11px] uppercase tracking-[0.16em]",
         tones[tone],
         className
       )}

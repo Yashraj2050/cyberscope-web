@@ -23,7 +23,7 @@ const LAYERS = [
 
 export function ArchPreview() {
   return (
-    <Section className="border-t border-border bg-cs-surface-1">
+    <Section className="border-t border-border bg-surface">
       <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-5">
           <Reveal>
@@ -36,7 +36,7 @@ export function ArchPreview() {
           <Reveal delay={80}>
             <RouterLink
               route="architecture"
-              className="group mt-6 inline-flex items-center gap-2 text-sm font-medium text-cs-accent"
+              className="group mt-6 inline-flex items-center gap-2 text-sm font-medium text-accent"
             >
               Explore the architecture
               <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" />
@@ -46,7 +46,7 @@ export function ArchPreview() {
 
         <div className="lg:col-span-7">
           <Reveal delay={120}>
-            <div className="rounded-xl border border-border bg-background p-5 md:p-6">
+            <div className="rounded-lg border border-border bg-background p-5 md:p-6">
               <div className="mb-4 flex items-center justify-between">
                 <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-fg-subtle">
                   Reconstruction pipeline
@@ -58,7 +58,7 @@ export function ArchPreview() {
               <div className="flex flex-wrap items-center gap-2">
                 {LAYERS.map((layer, i) => (
                   <div key={layer} className="flex items-center gap-2">
-                    <span className="rounded-md border border-border bg-cs-surface-2 px-3 py-1.5 text-xs text-foreground/90">
+                    <span className="rounded-md border border-border bg-surface-elevated px-3 py-1.5 text-xs text-fg/90">
                       {layer}
                     </span>
                     {i < LAYERS.length - 1 && (
@@ -73,7 +73,7 @@ export function ArchPreview() {
           </Reveal>
 
           <Reveal delay={180}>
-            <div className="mt-4 rounded-xl border border-border bg-background p-5 md:p-6">
+            <div className="mt-4 rounded-lg border border-border bg-background p-5 md:p-6">
               <div className="mb-4 flex items-center justify-between">
                 <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-fg-subtle">
                   Six gap signals
@@ -86,11 +86,11 @@ export function ArchPreview() {
                 {SIX_GAP_SIGNALS.map((sig) => (
                   <div
                     key={sig.key}
-                    className="flex items-start gap-3 rounded-md border border-border bg-cs-surface-2 px-3 py-2.5"
+                    className="flex items-start gap-3 rounded-md border border-border bg-surface-elevated px-3 py-2.5"
                   >
-                    <span className="mt-1 size-1.5 shrink-0 rounded-full bg-cs-accent" />
+                    <span className="mt-1.5 size-1 shrink-0 rounded-full bg-accent" aria-hidden />
                     <div className="flex flex-col">
-                      <span className="text-sm text-foreground">{sig.label}</span>
+                      <span className="text-sm text-fg">{sig.label}</span>
                       <span className="text-xs leading-snug text-fg-subtle">
                         {sig.description}
                       </span>

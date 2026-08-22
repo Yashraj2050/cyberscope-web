@@ -24,7 +24,7 @@ function DownConnector({ label }: { label?: string }) {
   return (
     <div className="flex items-center gap-3 py-2">
       <div className="flex flex-col items-center">
-        <div className="h-7 w-px bg-gradient-to-b from-white/20 to-white/5" />
+        <div className="h-7 w-px bg-border-strong" />
         <div className="size-1.5 -translate-y-1 rotate-45 border-r border-b border-white/25" />
       </div>
       {label && (
@@ -46,12 +46,12 @@ function Node({
   sub?: string;
 }) {
   return (
-    <div className="flex min-w-0 flex-1 items-center gap-3 rounded-md border border-border bg-cs-surface-2 px-4 py-3">
-      <span className="inline-flex size-7 shrink-0 items-center justify-center rounded-md border border-border bg-cs-surface-1">
-        <Icon className="size-3.5 text-cs-accent" />
+    <div className="flex min-w-0 flex-1 items-center gap-3 rounded-md border border-border bg-surface-elevated px-4 py-3">
+      <span className="inline-flex size-7 shrink-0 items-center justify-center rounded-md border border-border bg-surface">
+        <Icon className="size-3.5 text-accent" />
       </span>
       <div className="flex min-w-0 flex-col">
-        <span className="truncate text-sm font-medium text-foreground">
+        <span className="truncate text-sm font-medium text-fg">
           {label}
         </span>
         {sub && <span className="truncate text-xs text-fg-subtle">{sub}</span>}
@@ -70,9 +70,9 @@ function LayerGroup({
   children: ReactNode;
 }) {
   return (
-    <div className="rounded-xl border border-border bg-cs-surface-1 p-4">
+    <div className="rounded-lg border border-border bg-surface p-4">
       <div className="mb-3 flex items-center justify-between">
-        <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-cs-accent">
+        <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-accent">
           {label}
         </span>
         {meta && (
@@ -181,11 +181,11 @@ export function ArchitectureView() {
             </Reveal>
 
             <Reveal delay={220}>
-              <div className="mt-6 rounded-lg border border-cs-unknown/30 bg-cs-unknown/[0.05] p-4">
-                <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-cs-unknown">
+              <div className="mt-6 rounded-lg border border-warning/30 bg-surface p-4">
+                <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-warning">
                   Trust boundary
                 </span>
-                <p className="mt-2 text-sm leading-relaxed text-foreground/90">
+                <p className="mt-2 text-sm leading-relaxed text-fg/90">
                   The boundary between the observed graph and the candidate set
                   is enforced here. Verification decides OBSERVED → INFERRED or
                   stays UNKNOWN.
@@ -206,13 +206,13 @@ export function ArchitectureView() {
                   {PROPERTIES.map((p) => (
                     <div
                       key={p.title}
-                      className="flex items-start gap-3 rounded-lg border border-border bg-cs-surface-1 p-4"
+                      className="flex items-start gap-3 rounded-lg border border-border bg-surface p-4"
                     >
-                      <span className="inline-flex size-8 shrink-0 items-center justify-center rounded-md border border-border bg-cs-surface-2">
-                        <p.icon className="size-4 text-cs-accent" />
+                      <span className="inline-flex size-8 shrink-0 items-center justify-center rounded-md border border-border bg-surface-elevated">
+                        <p.icon className="size-4 text-accent" />
                       </span>
                       <div>
-                        <h3 className="text-sm font-semibold text-foreground">
+                        <h3 className="text-sm font-semibold text-fg">
                           {p.title}
                         </h3>
                         <p className="mt-1 text-xs leading-relaxed text-fg-muted">
@@ -226,7 +226,7 @@ export function ArchitectureView() {
             </Reveal>
 
             <Reveal delay={180}>
-              <div className="mt-6 rounded-xl border border-border bg-cs-surface-1 p-5">
+              <div className="mt-6 rounded-lg border border-border bg-surface p-5">
                 <div className="mb-3 flex items-center justify-between">
                   <Eyebrow>Six gap signals</Eyebrow>
                   <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-fg-subtle">
@@ -239,7 +239,7 @@ export function ArchitectureView() {
                       key={sig.key}
                       className="flex items-center justify-between border-b border-border/60 py-2 last:border-0"
                     >
-                      <span className="text-sm text-foreground">{sig.label}</span>
+                      <span className="text-sm text-fg">{sig.label}</span>
                       <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-fg-subtle">
                         {sig.key}
                       </span>
@@ -253,7 +253,7 @@ export function ArchitectureView() {
       </Section>
 
       {/* Component detail table */}
-      <Section className="border-t border-border bg-cs-surface-1">
+      <Section className="border-t border-border bg-surface">
         <Container>
           <Reveal>
             <SectionHeader
@@ -262,9 +262,9 @@ export function ArchitectureView() {
             />
           </Reveal>
           <Reveal delay={80}>
-            <div className="mt-8 overflow-hidden rounded-xl border border-border">
+            <div className="mt-8 overflow-hidden rounded-lg border border-border">
               <table className="w-full text-left text-sm">
-                <thead className="bg-cs-surface-2">
+                <thead className="bg-surface-elevated">
                   <tr className="border-b border-border">
                     <th className="px-5 py-3 font-mono text-[11px] uppercase tracking-[0.14em] text-fg-subtle">
                       Layer
@@ -288,7 +288,7 @@ export function ArchitectureView() {
                   ].map(([layer, resp]) => (
                     <tr key={layer} className="border-b border-border/60 last:border-0">
                       <td className="px-5 py-3 align-top">
-                        <span className="font-mono text-sm text-cs-accent">{layer}</span>
+                        <span className="font-mono text-sm text-accent">{layer}</span>
                       </td>
                       <td className="px-5 py-3 text-fg-muted">{resp}</td>
                     </tr>

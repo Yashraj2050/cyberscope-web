@@ -78,9 +78,9 @@ const ANALYSIS_REQS: Req[] = [
 
 function ReqTable({ title, subtitle, reqs }: { title: string; subtitle: string; reqs: Req[] }) {
   return (
-    <div className="overflow-hidden rounded-xl border border-border bg-cs-surface-1">
-      <div className="border-b border-border bg-cs-surface-2 px-6 py-4">
-        <h3 className="text-sm font-semibold text-foreground">{title}</h3>
+    <div className="overflow-hidden rounded-lg border border-border bg-surface">
+      <div className="border-b border-border bg-surface-elevated px-6 py-4">
+        <h3 className="text-sm font-semibold text-fg">{title}</h3>
         <p className="mt-0.5 text-xs text-fg-subtle">{subtitle}</p>
       </div>
       <dl className="divide-y divide-border/60">
@@ -88,8 +88,8 @@ function ReqTable({ title, subtitle, reqs }: { title: string; subtitle: string; 
           const Icon = r.icon;
           return (
             <div key={r.label} className="flex items-start gap-4 px-6 py-4">
-              <span className="mt-0.5 inline-flex size-8 shrink-0 items-center justify-center rounded-md border border-border bg-cs-surface-2">
-                <Icon className="size-4 text-cs-accent" />
+              <span className="mt-0.5 inline-flex size-8 shrink-0 items-center justify-center rounded-md border border-border bg-surface-elevated">
+                <Icon className="size-4 text-accent" />
               </span>
               <div className="flex-1">
                 <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
@@ -97,7 +97,7 @@ function ReqTable({ title, subtitle, reqs }: { title: string; subtitle: string; 
                     {r.label}
                   </span>
                 </div>
-                <div className="mt-1 text-sm text-foreground">{r.value}</div>
+                <div className="mt-1 text-sm text-fg">{r.value}</div>
                 {r.note && (
                   <div className="mt-1 text-xs text-fg-subtle">{r.note}</div>
                 )}
@@ -138,7 +138,7 @@ export function SystemView() {
         </div>
 
         <Reveal delay={140}>
-          <div className="mt-8 rounded-lg border border-border bg-cs-surface-1 p-6">
+          <div className="mt-8 rounded-lg border border-border bg-surface p-6">
             <SectionHeader
               eyebrow="Notes"
               title="On unconfirmed figures."

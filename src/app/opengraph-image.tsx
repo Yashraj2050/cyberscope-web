@@ -16,11 +16,9 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           backgroundColor: "#0a0d12",
-          backgroundImage:
-            "radial-gradient(circle at 82% 18%, rgba(60,201,232,0.10), transparent 45%)",
           padding: "72px 80px",
           fontFamily: "sans-serif",
-          color: "#e7edf5",
+          color: "#e6ebf2",
         }}
       >
         {/* Brand lockup */}
@@ -38,7 +36,7 @@ export default function OpengraphImage() {
               cy="16"
               r="9.5"
               fill="none"
-              stroke="#3CC9E8"
+              stroke="#5b9bd5"
               strokeWidth="1.3"
               opacity="0.4"
             />
@@ -47,17 +45,17 @@ export default function OpengraphImage() {
               cy="16"
               r="5.2"
               fill="none"
-              stroke="#3CC9E8"
+              stroke="#5b9bd5"
               strokeWidth="1.5"
             />
-            <circle cx="16" cy="16" r="1.7" fill="#3CC9E8" />
+            <circle cx="16" cy="16" r="1.7" fill="#5b9bd5" />
           </svg>
           <div
             style={{
               display: "flex",
               fontSize: "26px",
               letterSpacing: "0.04em",
-              color: "#9aa4b2",
+              color: "#8b95a3",
               fontFamily: "monospace",
             }}
           >
@@ -73,7 +71,7 @@ export default function OpengraphImage() {
               gap: "14px",
               fontFamily: "monospace",
               fontSize: "18px",
-              color: "#3cc9e8",
+              color: "#5b9bd5",
               letterSpacing: "0.16em",
             }}
           >
@@ -92,12 +90,12 @@ export default function OpengraphImage() {
               fontWeight: 600,
               lineHeight: 1.06,
               letterSpacing: "-0.02em",
-              color: "#e7edf5",
+              color: "#e6ebf2",
             }}
           >
             <div style={{ display: "flex" }}>Offline Attack Path</div>
             <div style={{ display: "flex" }}>Reconstruction</div>
-            <div style={{ display: "flex", color: "#9aa4b2" }}>
+            <div style={{ display: "flex", color: "#8b95a3" }}>
               &amp; Evidence Analysis
             </div>
           </div>
@@ -106,7 +104,7 @@ export default function OpengraphImage() {
             style={{
               display: "flex",
               fontSize: "26px",
-              color: "#9aa4b2",
+              color: "#8b95a3",
               maxWidth: "880px",
               lineHeight: 1.35,
             }}
@@ -126,7 +124,7 @@ export default function OpengraphImage() {
             paddingTop: "26px",
             fontFamily: "monospace",
             fontSize: "15px",
-            color: "#6b7585",
+            color: "#5c6573",
             letterSpacing: "0.1em",
           }}
         >

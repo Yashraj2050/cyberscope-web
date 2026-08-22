@@ -18,7 +18,7 @@ const STAGES = [
 
 export function WhatItDoes() {
   return (
-    <Section className="border-y border-border bg-cs-surface-1">
+    <Section className="border-y border-border bg-surface">
       <div className="flex flex-col gap-10">
         <Reveal>
           <SectionHeader

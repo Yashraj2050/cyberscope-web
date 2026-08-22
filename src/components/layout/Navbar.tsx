@@ -20,7 +20,7 @@ function Wordmark({ onClick }: { onClick?: () => void }) {
         width="22"
         height="22"
         viewBox="0 0 32 32"
-        className="text-cs-accent"
+        className="text-accent"
         aria-hidden
       >
         <rect width="32" height="32" rx="7" fill="#0e131b" />
@@ -50,7 +50,7 @@ function Wordmark({ onClick }: { onClick?: () => void }) {
           opacity="0.75"
         />
       </svg>
-      <span className="text-[15px] font-semibold tracking-tight text-foreground">
+      <span className="text-[15px] font-semibold tracking-tight text-fg">
         CyberScope
       </span>
     </a>
@@ -123,8 +123,8 @@ function NavDropdown({
         className={cn(
           "inline-flex items-center gap-1 rounded-md px-3 py-1.5 text-sm transition-colors",
           isChildActive
-            ? "text-foreground"
-            : "text-fg-muted hover:text-foreground"
+            ? "text-fg"
+            : "text-fg-muted hover:text-fg"
         )}
       >
         {label}
@@ -139,7 +139,7 @@ function NavDropdown({
       {open && (
         <div
           role="menu"
-          className="absolute left-0 top-full z-50 mt-2 w-80 overflow-hidden rounded-lg border border-border bg-cs-surface-2 p-1.5 shadow-2xl shadow-black/40"
+          className="absolute left-0 top-full z-50 mt-2 w-80 overflow-hidden rounded-lg border border-border bg-surface-elevated p-1.5 shadow-lg shadow-black/30"
         >
           {items.map((item) => (
             <a
@@ -153,12 +153,12 @@ function NavDropdown({
               className={cn(
                 "block rounded-md px-3 py-2.5 transition-colors",
                 isActive(item.route, current)
-                  ? "bg-cs-surface-3"
-                  : "hover:bg-cs-surface-3"
+                  ? "bg-surface-hover"
+                  : "hover:bg-surface-hover"
               )}
             >
               <div className="flex items-center justify-between">
-                <span className="text-sm font-medium text-foreground">
+                <span className="text-sm font-medium text-fg">
                   {item.label}
                 </span>
                 <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-fg-subtle">
@@ -222,8 +222,8 @@ export function Navbar({
                   className={cn(
                     "rounded-md px-3 py-1.5 text-sm transition-colors",
                     isActive(item.route!, current)
-                      ? "text-foreground"
-                      : "text-fg-muted hover:text-foreground"
+                      ? "text-fg"
+                      : "text-fg-muted hover:text-fg"
                   )}
                 >
                   {item.label}
@@ -237,7 +237,7 @@ export function Navbar({
               href={routerHref("download")}
               onClick={() => onNavigate("download")}
               className={cn(
-                "hidden items-center gap-2 rounded-md bg-cs-accent px-3.5 py-2 text-sm font-medium text-[#06141a] transition-colors hover:bg-cs-accent-strong sm:inline-flex"
+                "hidden items-center gap-2 rounded-md bg-accent px-3.5 py-2 text-sm font-medium text-[#06141a] transition-colors hover:bg-accent-strong sm:inline-flex"
               )}
             >
               <Download className="size-4" />
@@ -246,7 +246,7 @@ export function Navbar({
 
             <button
               type="button"
-              className="inline-flex size-9 items-center justify-center rounded-md border border-border text-fg-muted transition-colors hover:text-foreground lg:hidden"
+              className="inline-flex size-9 items-center justify-center rounded-md border border-border text-fg-muted transition-colors hover:text-fg lg:hidden"
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
               onClick={() => setMobileOpen((v) => !v)}
@@ -272,11 +272,11 @@ export function Navbar({
                         className={cn(
                           "rounded-md px-3 py-2.5 text-sm",
                           isActive(c.route, current)
-                            ? "bg-cs-surface-2 text-foreground"
+                            ? "bg-surface-elevated text-fg"
                             : "text-fg-muted"
                         )}
                       >
-                        <span className="block font-medium text-foreground">
+                        <span className="block font-medium text-fg">
                           {c.label}
                         </span>
                         {c.description && (
@@ -294,7 +294,7 @@ export function Navbar({
                         className={cn(
                           "rounded-md px-3 py-2.5 text-sm",
                           isActive(item.route!, current)
-                            ? "bg-cs-surface-2 text-foreground"
+                            ? "bg-surface-elevated text-fg"
                             : "text-fg-muted"
                         )}
                       >
@@ -311,7 +311,7 @@ export function Navbar({
                   className={cn(
                     "rounded-md px-3 py-2.5 text-sm",
                     isActive(s.route, current)
-                      ? "bg-cs-surface-2 text-foreground"
+                      ? "bg-surface-elevated text-fg"
                       : "text-fg-muted"
                   )}
                 >
@@ -321,7 +321,7 @@ export function Navbar({
               <a
                 href={routerHref("download")}
                 onClick={() => go("download")}
-                className="mt-3 inline-flex items-center justify-center gap-2 rounded-md bg-cs-accent px-4 py-2.5 text-sm font-medium text-[#06141a]"
+                className="mt-3 inline-flex items-center justify-center gap-2 rounded-md bg-accent px-4 py-2.5 text-sm font-medium text-[#06141a]"
               >
                 <Download className="size-4" />
                 Download CyberScope

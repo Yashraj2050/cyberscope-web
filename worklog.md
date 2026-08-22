@@ -242,3 +242,54 @@ Work Log:
 Stage Summary:
 - Site fully verified end-to-end. Compiles, lints clean, all routes render, all interactions work, SEO assets serve, responsive across desktop/tablet/mobile, and the visual language reads as professional security-engineering tooling — not an AI-generated landing page.
 - Build complete.
+
+---
+Task ID: 3
+Agent: full-stack-developer
+Task: Apply restrained design-token sweep to remaining component files.
+
+Work Log:
+- src/components/layout/Navbar.tsx — migrated `text-cs-accent`→`text-accent`, `bg-cs-surface-2`→`bg-surface-elevated`, `bg-cs-surface-3`→`bg-surface-hover`, `bg-cs-accent`/`hover:bg-cs-accent-strong`→`bg-accent`/`hover:bg-accent-strong`, `text-foreground`→`text-fg`, and dropdown shadow `shadow-2xl shadow-black/40`→`shadow-lg shadow-black/30` (subtler).
+- src/components/layout/Footer.tsx — `bg-cs-surface-1`→`bg-surface`, `bg-cs-surface-2`→`bg-surface-elevated`, `text-cs-accent`→`text-accent`, `text-cs-observed`→`text-success`, `text-foreground`→`text-fg`.
+- src/components/layout/SiteShell.tsx — skip-link focus styles: `border-cs-border-strong`→`border-border-strong`, `bg-cs-surface-2`→`bg-surface-elevated`, `text-foreground`→`text-fg`.
+- src/components/download/PlatformSelector.tsx — `bg-cs-surface-1`→`bg-surface`, `bg-cs-surface-3`→`bg-surface-hover`, `text-foreground`→`text-fg`.
+- src/components/download/DownloadView.tsx — preview-notice callout: `border-cs-unknown/30 bg-cs-unknown/[0.06]`→`border-warning/30 bg-surface` (border carries semantic, no fill), `text-cs-unknown`→`text-warning`, `text-foreground/90`→`text-fg/90`; release panel `rounded-xl`→`rounded-lg`, `bg-cs-surface-1`→`bg-surface`, `bg-cs-surface-2/50`→`bg-surface-elevated/50`, `bg-cs-accent`/`hover:bg-cs-accent-strong`→`bg-accent`/`hover:bg-accent-strong`, `text-cs-accent`/`hover:text-cs-accent-strong`→`text-accent`/`hover:text-accent-strong`, `text-cs-observed`→`text-success`, `border-cs-border-strong`→`border-border-strong`, `bg-cs-surface-3`→`bg-surface-hover`; sidebar cards `rounded-xl`→`rounded-lg`; bullets `bg-cs-accent`→`bg-accent`.
+- src/components/releases/ReleaseEntry.tsx — ChangeList dot colors per evidence semantics: `bg-cs-observed`→`bg-success` (highlights/security), `bg-cs-unknown`→`bg-warning` (bug fixes), `bg-cs-accent`→`bg-accent` (neutral changes); article `rounded-xl`→`rounded-lg`, `bg-cs-surface-1`→`bg-surface`, `bg-cs-surface-2/40`→`bg-surface-elevated/40`, `border-cs-border-strong`→`border-border-strong`, `text-foreground`→`text-fg`, platform chips `bg-cs-surface-2`→`bg-surface-elevated`.
+- src/components/updates/UpdatesView.tsx — flow-stage icon chip `border-cs-accent/30 bg-cs-accent/10`→`border-border bg-surface-elevated` (icon stays `text-accent`); "what updates are not" cards `border-cs-unknown/25 bg-cs-unknown/[0.05]`→`border-warning/25 bg-surface` (border carries warning, no fill), dots `bg-cs-unknown`→`bg-warning`; `bg-cs-surface-1`→`bg-surface`, `text-foreground`→`text-fg`, `rounded-xl`→`rounded-lg`.
+- src/components/architecture/ArchitectureView.tsx — DownConnector gradient `bg-gradient-to-b from-white/20 to-white/5`→`bg-border-strong` (solid line); trust-boundary callout `border-cs-unknown/30 bg-cs-unknown/[0.05]`→`border-warning/30 bg-surface`, `text-cs-unknown`→`text-warning`, `text-foreground/90`→`text-fg/90`; node/layer cards `bg-cs-surface-1`→`bg-surface`, `bg-cs-surface-2`→`bg-surface-elevated`, `text-cs-accent`→`text-accent` (architecture mono labels, table layer column), `text-foreground`→`text-fg`, `rounded-xl`→`rounded-lg`.
+- src/components/system/SystemView.tsx — ReqTable card `rounded-xl`→`rounded-lg`, `bg-cs-surface-1`→`bg-surface`, header `bg-cs-surface-2`→`bg-surface-elevated`, icon `text-cs-accent`→`text-accent`, `bg-cs-surface-2`→`bg-surface-elevated`, `text-foreground`→`text-fg`, notes card `bg-cs-surface-1`→`bg-surface`.
+- src/components/about/AboutView.tsx — philosophy icon chip `border-cs-accent/30 bg-cs-accent/10`→`border-border bg-surface-elevated` (icon stays `text-accent`); at-a-glance card `rounded-xl`→`rounded-lg`, `bg-cs-surface-1`→`bg-surface`, `text-foreground`→`text-fg` (incl. `text-foreground/90`→`text-fg/90`), section `bg-cs-surface-1`→`bg-surface`.
+- src/components/security/SecurityView.tsx — section border `border-cs-unknown/30`→`border-warning/30` (limitation section keeps warning tint), section `bg-cs-surface-1`→`bg-surface`, `rounded-xl`→`rounded-lg`; icon chips `border-cs-unknown/30 bg-cs-unknown/10` AND `border-cs-accent/30 bg-cs-accent/10` BOTH→`border-border bg-surface-elevated` (icons stay `text-warning`/`text-accent`); TOC `hover:bg-cs-surface-2 hover:text-foreground`→`hover:bg-surface-elevated hover:text-fg`; threat-model dots `bg-cs-accent`→`bg-accent`, limitation dots `bg-cs-unknown`→`bg-warning`; `text-foreground`→`text-fg`.
+- src/components/docs/DocsView.tsx — callout backgrounds: warn `border-cs-unknown/30 bg-cs-unknown/[0.05]`→`border-warning/30 bg-surface`, info `border-cs-accent/25 bg-cs-accent/[0.05]`→`border-accent/30 bg-surface` (icons + titles keep `text-warning`/`text-accent`); sidebar active `bg-cs-surface-2 text-foreground`→`bg-surface-elevated text-fg`, hover `bg-cs-surface-2/50`→`bg-surface-elevated/50`; active index `text-cs-accent`→`text-accent`; list bullets `bg-cs-accent`→`bg-accent`; article `rounded-xl`→`rounded-lg`, `bg-cs-surface-1`→`bg-surface`; prev/next buttons `bg-cs-surface-1`→`bg-surface`; `text-foreground`→`text-fg` (incl. `text-foreground/90`→`text-fg/90`).
+- src/components/contact/ContactView.tsx — removed decorative `cs-hairline-top` (no longer exists); card border `border-cs-unknown/30`→`border-warning/30` (carries warning semantic); card `bg-cs-surface-1`→`bg-surface`; icon chips `border-cs-unknown/30 bg-cs-unknown/10` AND `border-cs-accent/30 bg-cs-accent/10`→`border-border bg-surface-elevated` (icons stay `text-warning`/`text-accent`); mailto links `text-cs-accent hover:text-cs-accent-strong`→`text-accent hover:text-accent-strong`; "include" bullets `bg-cs-accent`→`bg-accent`, "do-not-send" bullets `bg-cs-unknown`→`bg-warning`; "When you write" panel `rounded-xl`→`rounded-lg`, `bg-cs-surface-1`→`bg-surface`, `text-foreground`→`text-fg`.
+- Lint: `bun run lint` passes clean (0 errors, 0 warnings). Dev server still serving HTTP 200.
+
+Stage Summary:
+- All 13 target files migrated from legacy `cs-*` aliases to the new clean token vocabulary (`bg-surface`, `bg-surface-elevated`, `bg-surface-hover`, `border-border-strong`, `bg-accent`/`hover:bg-accent-strong`, `text-accent`/`hover:text-accent-strong`, `text-success`, `text-warning`, `text-fg`/`text-fg/90`).
+- Removed SaaS-y decorative effects: tinted accent/warning icon-chip fills (`border-*-*/30 bg-*-*/10`) collapsed to plain `border-border bg-surface-elevated` so the icon color carries the semantic, not the chip background. Same for tinted callout backgrounds (`bg-cs-unknown/[0.05]`/`bg-cs-accent/[0.05]`) → `bg-surface`, leaving the colored border (`border-warning/30`/`border-accent/30`) to carry meaning.
+- Removed decorative `cs-hairline-top` gradient hairline in ContactView.
+- Replaced DownConnector gradient (`bg-gradient-to-b from-white/20 to-white/5`) with solid `bg-border-strong` line in ArchitectureView.
+- Reduced oversized rounding (`rounded-xl`→`rounded-lg`) across cards, dialogs, sidebars, articles, and callouts for a tighter, more engineering-tool feel.
+- Softened Navbar dropdown shadow `shadow-2xl shadow-black/40`→`shadow-lg shadow-black/30`.
+- Evidence coloring now consistent: OBSERVED=success (green), INFERRED=accent (blue), UNKNOWN=warning (amber) — reflected in ReleaseEntry ChangeList dots, TrustBoundary evidence states, and StatusChip usage throughout.
+- No layout, copy, or logic changes. No new gradients, glows, or `blur-*` effects introduced.
+- No forbidden files touched (`src/components/ui/sidebar.tsx`, `src/components/ui/card.tsx`, `src/components/home/*`, `src/components/primitives/ui.tsx`, `src/components/primitives/CopyButton.tsx`, `src/data/*`, `src/lib/*`, `src/app/*`).
+
+---
+Task ID: 4
+Agent: Lead Architect (verification)
+Task: Verify the restrained redesign end-to-end (lint, rendering, VLM design review).
+
+Work Log:
+- Token system established in globals.css (Task 0 of redesign): background, surface, surface-elevated, surface-hover, border, border-strong, text-fg/fg-muted/fg-subtle, accent, warning, success, error. Evidence semantics aligned: OBSERVED=success(green), INFERRED=accent(blue), UNKNOWN=warning(amber). Removed decorative utility classes (cs-grid-bg, cs-hairline-top, cs-connector); kept only cs-reveal (minimal motion).
+- Primitives rewritten (ui.tsx): Eyebrow = solid accent bar (was gradient), EvidenceBadge = no-fill tag (dot + colored mono text + bottom hairline border, was tinted pill), PageHeader = plain border-b on surface (removed grid bg + gradient hairline), StatusChip = no-fill tag, Pipeline/Arrow solid.
+- Home sections stripped: Hero (removed radial-gradient blob, grid bg, gradient hairline, gradient eyebrow bar → solid), DownloadCTA (removed blob + grid), TrustBoundary (removed cs-hairline-top gradient glow), ProblemSection (gradient connectors → solid bg-border-strong lines), ArchPreview/WhatItDoes (surface tokens, plain borders).
+- Remaining 13 component files swept by subagent (Task ID 3): migrated all cs-* tokens to new token names, replaced tinted accent/unknown icon chips with plain surface-elevated+border (icon keeps color), reduced rounded-xl→rounded-lg, softened dropdown shadow, removed cs-hairline-top, gradient connectors→solid.
+- favicon.svg + opengraph-image.tsx: accent shifted from neon cyan #3cc9e8 to restrained blue #5b9bd5; OG radial-gradient glow removed; muted text palette (#8b95a3/#5c6573).
+- Lint: `bun run lint` clean (0 errors, 0 warnings).
+- Agent Browser: home/download/architecture/security/docs all render with correct H1, 0 console errors. OG image regenerates 200 (58KB). favicon 200.
+- VLM (glm-5v) home review: "Successful transformation from SaaS marketing page to infrastructure tool homepage... reads like Tailscale/Grafana/HashiCorp docs... signals 'serious software for analysts' through austerity and typographic clarity." Confirmed zero remaining gradients/glow/tinted chips/oversized rounding.
+- VLM download review: "Zero glow, gradients, or tinted overlays... reads like a systems engineering dashboard or a hardened CLI tool's web front-end. SaaS Residue: None."
+
+Stage Summary:
+- Redesign complete. The site now reads as professional cybersecurity infrastructure software: dark graphite/navy, restrained blue accent, amber only for evidence gaps, strong typography + precise spacing + subtle borders carry the hierarchy. No gradients, glow, glass, neon, particles, or marketing-fluff visuals.

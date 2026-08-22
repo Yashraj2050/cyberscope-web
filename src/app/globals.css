@@ -4,9 +4,15 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
-  CyberScope design system.
-  Dark-first premium security-engineering aesthetic.
-  The :root IS the dark palette (the product is explicitly dark-themed).
+  ═══════════════════════════════════════════════════════════════════════
+    CYBERSCOPE — DESIGN TOKEN SYSTEM
+    Dark graphite/navy infrastructure software. Restrained.
+    One blue accent. Amber for evidence gaps. Minimal motion.
+
+    The tokens below are the single source of truth. Components must consume
+    these via the Tailwind aliases (`bg-surface`, `text-fg`, `text-accent`…)
+    or the `cs-*` aliases, never raw hex.
+  ═══════════════════════════════════════════════════════════════════════
 */
 
 @theme inline {
@@ -46,19 +52,24 @@
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
 
-  /* CyberScope semantic tokens */
-  --color-cs-surface-1: var(--cs-surface-1);
-  --color-cs-surface-2: var(--cs-surface-2);
-  --color-cs-surface-3: var(--cs-surface-3);
-  --color-cs-border-strong: var(--cs-border-strong);
-  --color-cs-accent: var(--cs-accent);
-  --color-cs-accent-strong: var(--cs-accent-strong);
-  --color-cs-amber: var(--cs-amber);
-  --color-cs-observed: var(--cs-observed);
-  --color-cs-inferred: var(--cs-inferred);
-  --color-cs-unknown: var(--cs-unknown);
+  /* CyberScope semantic tokens — Tailwind aliases */
+  --color-surface: var(--cs-surface);
+  --color-surface-elevated: var(--cs-surface-elevated);
+  --color-surface-hover: var(--cs-surface-hover);
+  --color-border-strong: var(--cs-border-strong);
+  --color-accent: var(--cs-accent);
+  --color-accent-strong: var(--cs-accent-strong);
+  --color-warning: var(--cs-warning);
+  --color-success: var(--cs-success);
+  --color-error: var(--cs-error);
+  --color-fg: var(--cs-fg);
   --color-fg-muted: var(--cs-fg-muted);
   --color-fg-subtle: var(--cs-fg-subtle);
+
+  /* Evidence semantics (map to the tokens above) */
+  --color-cs-observed: var(--cs-success);
+  --color-cs-inferred: var(--cs-accent);
+  --color-cs-unknown: var(--cs-warning);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -67,61 +78,69 @@
 }
 
 :root {
+  /* ── Core token system ──────────────────────────────────────────── */
   --radius: 0.5rem;
 
-  /* Base surfaces */
-  --background: #0a0d12;
-  --cs-surface-1: #0e131b;
-  --cs-surface-2: #121a24;
-  --cs-surface-3: #18212e;
-  --card: var(--cs-surface-2);
-  --card-foreground: #e7edf5;
-  --popover: var(--cs-surface-2);
-  --popover-foreground: #e7edf5;
+  /* background — near-black navy / graphite */
+  --background: #0a0d12;            /* background */
+  --cs-surface: #0e1218;            /* surface — one subtle tonal layer */
+  --cs-surface-elevated: #131922;   /* surface-elevated — cards */
+  --cs-surface-hover: #181f29;      /* interactive hover on surface */
 
-  /* Foreground scale */
-  --foreground: #e7edf5;
-  --cs-fg-muted: #9aa4b2;
-  --cs-fg-subtle: #6b7585;
+  /* shadcn card/popover map to surface-elevated */
+  --card: var(--cs-surface-elevated);
+  --card-foreground: var(--cs-fg);
+  --popover: var(--cs-surface-elevated);
+  --popover-foreground: var(--cs-fg);
+
+  /* border — restrained */
+  --border: rgba(255, 255, 255, 0.07);
+  --cs-border-strong: rgba(255, 255, 255, 0.13);
+  --input: rgba(255, 255, 255, 0.10);
+
+  /* text */
+  --foreground: #e6ebf2;            /* text-primary */
+  --cs-fg: #e6ebf2;                 /* text-primary */
+  --cs-fg-muted: #8b95a3;            /* text-secondary */
+  --cs-fg-subtle: #5c6573;           /* text-tertiary (labels) */
   --muted-foreground: var(--cs-fg-muted);
 
-  /* shadcn semantic pairs (mapped to the dark palette) */
-  --primary: #e7edf5;
+  /* shadcn primary = foreground (used for high-emphasis inverse button) */
+  --primary: #e6ebf2;
   --primary-foreground: #0a0d12;
-  --secondary: var(--cs-surface-3);
-  --secondary-foreground: #e7edf5;
-  --muted: var(--cs-surface-1);
-  --accent: var(--cs-surface-3);
-  --accent-foreground: #e7edf5;
+  --secondary: var(--cs-surface-elevated);
+  --secondary-foreground: var(--cs-fg);
+  --muted: var(--cs-surface);
+  --accent: var(--cs-surface-hover);
+  --accent-foreground: var(--cs-fg);
 
-  --destructive: #f0616d;
-  --border: rgba(255, 255, 255, 0.08);
-  --cs-border-strong: rgba(255, 255, 255, 0.14);
-  --input: rgba(255, 255, 255, 0.1);
+  /* accent — restrained blue */
+  --cs-accent: #5b9bd5;
+  --cs-accent-strong: #7db4e0;
+
+  /* evidence / status colors */
+  --cs-warning: #d9942f;            /* amber — evidence gaps / UNKNOWN */
+  --cs-success: #4fae7a;            /* green — OBSERVED */
+  --cs-error: #d9534f;
+  --destructive: var(--cs-error);
+
   --ring: var(--cs-accent);
 
-  /* CyberScope accent + evidence semantics */
-  --cs-accent: #3cc9e8;
-  --cs-accent-strong: #5bd6f0;
-  --cs-amber: #e8a33c;
-  --cs-observed: #3fba7a;
-  --cs-inferred: #3cc9e8;
-  --cs-unknown: #e8a33c;
-
-  /* chart colors (kept for shadcn chart usage) */
-  --chart-1: #3cc9e8;
-  --chart-2: #3fba7a;
-  --chart-3: #e8a33c;
-  --chart-4: #8b95a5;
+  /* chart colors */
+  --chart-1: #5b9bd5;
+  --chart-2: #4fae7a;
+  --chart-3: #d9942f;
+  --chart-4: #8b95a3;
   --chart-5: #b074e8;
 
-  --sidebar: var(--cs-surface-1);
-  --sidebar-foreground: #e7edf5;
-  --sidebar-primary: #3cc9e8;
+  /* sidebar */
+  --sidebar: var(--cs-surface);
+  --sidebar-foreground: var(--cs-fg);
+  --sidebar-primary: var(--cs-accent);
   --sidebar-primary-foreground: #0a0d12;
-  --sidebar-accent: var(--cs-surface-3);
-  --sidebar-accent-foreground: #e7edf5;
-  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-accent: var(--cs-surface-hover);
+  --sidebar-accent-foreground: var(--cs-fg);
+  --sidebar-border: var(--border);
   --sidebar-ring: var(--cs-accent);
 }
 
@@ -140,23 +159,22 @@
     text-rendering: optimizeLegibility;
   }
 
-  /* Refined, restrained selection */
   ::selection {
-    background: rgba(60, 201, 232, 0.22);
+    background: rgba(91, 155, 213, 0.22);
     color: #ffffff;
   }
 
-  /* Focus ring — visible, accent-colored */
+  /* Focus ring — visible, accent-colored, no glow */
   :focus-visible {
     outline: none;
-    box-shadow: 0 0 0 2px var(--background), 0 0 0 4px rgba(60, 201, 232, 0.55);
+    box-shadow: 0 0 0 2px var(--background), 0 0 0 3px var(--cs-accent);
     border-radius: var(--radius-sm);
   }
 
   /* Thin, restrained scrollbar */
   * {
     scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0.14) transparent;
+    scrollbar-color: rgba(255, 255, 255, 0.12) transparent;
   }
   *::-webkit-scrollbar {
     width: 10px;
@@ -166,20 +184,20 @@
     background: transparent;
   }
   *::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 999px;
     border: 2px solid transparent;
     background-clip: padding-box;
   }
   *::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.18);
     background-clip: padding-box;
   }
 }
 
 /* ---- Utility component classes ---- */
 @layer components {
-  /* Mono eyebrow label with leading bar */
+  /* Mono eyebrow label */
   .cs-eyebrow {
     font-family: var(--font-geist-mono);
     font-size: 11px;
@@ -187,48 +205,13 @@
     text-transform: uppercase;
     color: var(--cs-fg-muted);
   }
-
-  /* Technical grid background used very sparingly on hero / diagrams */
-  .cs-grid-bg {
-    background-image:
-      linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-    background-size: 56px 56px;
-  }
-
-  /* Subtle top hairline glow on key surfaces — restrained */
-  .cs-hairline-top {
-    position: relative;
-  }
-  .cs-hairline-top::before {
-    content: "";
-    position: absolute;
-    inset: 0 0 auto 0;
-    height: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(60, 201, 232, 0.35),
-      transparent
-    );
-    opacity: 0.6;
-  }
-
-  /* Connector line for diagrams */
-  .cs-connector {
-    background: linear-gradient(
-      var(--connector-angle, 180deg),
-      rgba(255, 255, 255, 0.18),
-      rgba(255, 255, 255, 0.06)
-    );
-  }
 }
 
-/* ---- Reveal-on-scroll (subtle, CSS + IntersectionObserver-driven) ---- */
+/* ---- Reveal-on-scroll (minimal motion) ---- */
 .cs-reveal {
   opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(8px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
   will-change: opacity, transform;
 }
 .cs-reveal.is-visible {

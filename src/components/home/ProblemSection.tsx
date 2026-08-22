@@ -4,8 +4,7 @@ import { Reveal } from "@/components/primitives/Reveal";
 function Connector() {
   return (
     <div className="flex flex-col items-center py-2" aria-hidden>
-      <div className="h-8 w-px bg-gradient-to-b from-white/20 to-white/5" />
-      <div className="size-1.5 -translate-y-1 rotate-45 border-r border-b border-white/25" />
+      <div className="h-7 w-px bg-border-strong" />
     </div>
   );
 }
@@ -20,14 +19,14 @@ function ObservedNode({
   time: string;
 }) {
   return (
-    <div className="rounded-lg border border-border bg-cs-surface-2 p-4">
+    <div className="rounded-md border border-border bg-surface-elevated p-4">
       <div className="flex items-center justify-between">
         <EvidenceBadge state="observed" />
         <span className="font-mono text-[11px] text-fg-subtle">{time}</span>
       </div>
       <div className="mt-3 flex flex-col gap-1">
-        <span className="font-mono text-xs text-cs-accent">{technique}</span>
-        <span className="text-sm text-foreground">{label}</span>
+        <span className="font-mono text-xs text-accent">{technique}</span>
+        <span className="text-sm text-fg">{label}</span>
       </div>
     </div>
   );
@@ -43,17 +42,17 @@ function GapNode() {
     "temporal",
   ];
   return (
-    <div className="rounded-lg border border-dashed border-cs-unknown/50 bg-cs-unknown/[0.06] p-4">
+    <div className="rounded-md border border-dashed border-warning/45 bg-surface p-4">
       <div className="flex items-center justify-between">
-        <span className="inline-flex items-center gap-2 rounded-md border border-cs-unknown/40 bg-cs-unknown/10 px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.16em] text-cs-unknown">
-          <span className="size-1.5 rounded-full bg-cs-unknown" />
+        <span className="inline-flex items-center gap-2 border-b border-warning/40 pb-0.5 font-mono text-[11px] uppercase tracking-[0.16em] text-warning">
+          <span className="size-1.5 rounded-full bg-warning" aria-hidden />
           Gap
         </span>
         <span className="font-mono text-[11px] text-fg-subtle">
           reconstruction required
         </span>
       </div>
-      <div className="mt-3 text-sm text-foreground/90">
+      <div className="mt-3 text-sm text-fg/90">
         No plausible transition exists in the observed record between these two
         events.
       </div>
@@ -61,7 +60,7 @@ function GapNode() {
         {signals.map((s) => (
           <span
             key={s}
-            className="rounded border border-border bg-cs-surface-1 px-1.5 py-0.5 font-mono text-[10px] lowercase text-fg-subtle"
+            className="rounded border border-border bg-surface-elevated px-1.5 py-0.5 font-mono text-[10px] lowercase text-fg-subtle"
           >
             {s}
           </span>
@@ -96,7 +95,7 @@ export function ProblemSection() {
 
         {/* Gap illustration */}
         <Reveal delay={120}>
-          <div className="rounded-xl border border-border bg-cs-surface-1 p-5 md:p-6">
+          <div className="rounded-lg border border-border bg-surface p-5 md:p-6">
             <div className="mb-4 flex items-center justify-between">
               <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-fg-subtle">
                 Reconstructed view

@@ -40,7 +40,7 @@ export function AboutView() {
           <div className="lg:col-span-7">
             <Reveal>
               <Eyebrow>The problem</Eyebrow>
-              <h2 className="mt-4 text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+              <h2 className="mt-4 text-2xl font-semibold tracking-tight text-fg md:text-3xl">
                 Telemetry is almost never complete.
               </h2>
               <div className="mt-5 flex flex-col gap-4 text-base leading-relaxed text-fg-muted">
@@ -69,7 +69,7 @@ export function AboutView() {
 
           <aside className="lg:col-span-5">
             <Reveal delay={100}>
-              <div className="rounded-xl border border-border bg-cs-surface-1 p-6">
+              <div className="rounded-lg border border-border bg-surface p-6">
                 <Eyebrow>At a glance</Eyebrow>
                 <dl className="mt-5 divide-y divide-border/60">
                   {[
@@ -86,7 +86,7 @@ export function AboutView() {
                       <dt className="font-mono text-[11px] uppercase tracking-[0.14em] text-fg-subtle">
                         {k}
                       </dt>
-                      <dd className="text-sm text-foreground/90 sm:text-right">
+                      <dd className="text-sm text-fg/90 sm:text-right">
                         {v}
                       </dd>
                     </div>
@@ -98,7 +98,7 @@ export function AboutView() {
         </div>
       </Section>
 
-      <Section className="border-t border-border bg-cs-surface-1">
+      <Section className="border-t border-border bg-surface">
         <Container>
           <Reveal>
             <SectionHeader
@@ -113,10 +113,10 @@ export function AboutView() {
               return (
                 <Reveal key={p.title} delay={i * 70}>
                   <div className="flex h-full flex-col gap-4 rounded-lg border border-border bg-background p-6">
-                    <span className="inline-flex size-10 items-center justify-center rounded-md border border-cs-accent/30 bg-cs-accent/10">
-                      <Icon className="size-5 text-cs-accent" />
+                    <span className="inline-flex size-10 items-center justify-center rounded-md border border-border bg-surface-elevated">
+                      <Icon className="size-5 text-accent" />
                     </span>
-                    <h3 className="text-base font-semibold text-foreground">
+                    <h3 className="text-base font-semibold text-fg">
                       {p.title}
                     </h3>
                     <p className="text-sm leading-relaxed text-fg-muted">

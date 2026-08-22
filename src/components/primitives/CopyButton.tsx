@@ -31,12 +31,12 @@ export function CopyButton({ text, label, className }: CopyButtonProps) {
       onClick={onCopy}
       aria-label={label ?? "Copy to clipboard"}
       className={cn(
-        "inline-flex items-center gap-1.5 rounded-md border border-border px-2 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-fg-muted transition-colors hover:border-cs-border-strong hover:text-foreground",
+        "inline-flex items-center gap-1.5 rounded-md border border-border px-2 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-fg-muted transition-colors hover:border-border-strong hover:text-fg",
         className
       )}
     >
       {copied ? (
-        <Check className="size-3 text-cs-observed" />
+        <Check className="size-3 text-success" />
       ) : (
         <Copy className="size-3" />
       )}

@@ -62,7 +62,7 @@ export function UpdatesView() {
 
         {/* Flow */}
         <Reveal delay={80}>
-          <div className="mt-10 rounded-xl border border-border bg-cs-surface-1 p-5 md:p-8">
+          <div className="mt-10 rounded-lg border border-border bg-surface p-5 md:p-8">
             <div className="flex flex-col items-stretch gap-3 md:flex-row md:items-center">
               {STAGES.map((stage, i) => {
                 const Icon = stage.icon;
@@ -72,11 +72,11 @@ export function UpdatesView() {
                     className="flex flex-col items-stretch gap-3 md:flex-1 md:flex-row md:items-center md:gap-2"
                   >
                     <div className="flex flex-1 flex-col items-center gap-3 rounded-lg border border-border bg-background px-4 py-5 text-center">
-                      <span className="inline-flex size-10 items-center justify-center rounded-md border border-cs-accent/30 bg-cs-accent/10">
-                        <Icon className="size-5 text-cs-accent" />
+                      <span className="inline-flex size-10 items-center justify-center rounded-md border border-border bg-surface-elevated">
+                        <Icon className="size-5 text-accent" />
                       </span>
                       <div className="flex flex-col">
-                        <span className="text-sm font-medium text-foreground">
+                        <span className="text-sm font-medium text-fg">
                           {stage.label}
                         </span>
                         <span className="font-mono text-[11px] text-fg-subtle">
@@ -105,7 +105,7 @@ export function UpdatesView() {
         </Reveal>
       </Section>
 
-      <Section className="border-t border-border bg-cs-surface-1">
+      <Section className="border-t border-border bg-surface">
         <Container>
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
             <Reveal>
@@ -147,11 +147,11 @@ export function UpdatesView() {
                 ].map(([title, text]) => (
                   <div
                     key={title}
-                    className="flex items-start gap-3 rounded-lg border border-cs-unknown/25 bg-cs-unknown/[0.05] p-4"
+                    className="flex items-start gap-3 rounded-lg border border-warning/25 bg-surface p-4"
                   >
-                    <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-cs-unknown" />
+                    <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-warning" />
                     <div>
-                      <span className="text-sm font-medium text-foreground">
+                      <span className="text-sm font-medium text-fg">
                         {title}
                       </span>
                       <p className="mt-1 text-xs leading-relaxed text-fg-muted">
@@ -169,7 +169,7 @@ export function UpdatesView() {
       <Section>
         <Container>
           <Reveal>
-            <div className="rounded-lg border border-border bg-cs-surface-1 p-6">
+            <div className="rounded-lg border border-border bg-surface p-6">
               <SectionHeader
                 eyebrow="Status"
                 title="Update ingestion is planned."

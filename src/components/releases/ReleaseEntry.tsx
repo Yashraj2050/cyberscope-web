@@ -39,9 +39,9 @@ function ChangeList({
         <span
           className={cn(
             "size-1.5 rounded-full",
-            tone === "observed" && "bg-cs-observed",
-            tone === "amber" && "bg-cs-unknown",
-            tone === "neutral" && "bg-cs-accent"
+            tone === "observed" && "bg-success",
+            tone === "amber" && "bg-warning",
+            tone === "neutral" && "bg-accent"
           )}
         />
         <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-fg-subtle">
@@ -77,13 +77,13 @@ export function ReleaseEntry({
   return (
     <article
       id={`v${release.version}`}
-      className="scroll-mt-24 rounded-xl border border-border bg-cs-surface-1"
+      className="scroll-mt-24 rounded-lg border border-border bg-surface"
     >
       {/* Header */}
       <header className="flex flex-wrap items-start justify-between gap-4 border-b border-border px-6 py-5">
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-3">
-            <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+            <h2 className="text-2xl font-semibold tracking-tight text-fg">
               v{release.version}
             </h2>
             <StatusChip
@@ -110,7 +110,7 @@ export function ReleaseEntry({
               {platforms.map((p) => (
                 <span
                   key={p}
-                  className="rounded border border-border bg-cs-surface-2 px-1.5 py-0.5 font-mono text-[10px] uppercase tracking-[0.1em] text-fg-muted"
+                  className="rounded border border-border bg-surface-elevated px-1.5 py-0.5 font-mono text-[10px] uppercase tracking-[0.1em] text-fg-muted"
                 >
                   {p}
                 </span>
@@ -157,7 +157,7 @@ export function ReleaseEntry({
                       className="border-b border-border/60 align-middle"
                     >
                       <td className="py-2 pr-4">
-                        <span className="font-mono text-xs text-foreground">
+                        <span className="font-mono text-xs text-fg">
                           .{a.packageType}
                         </span>
                       </td>
@@ -182,11 +182,11 @@ export function ReleaseEntry({
       </div>
 
       {/* Footer */}
-      <footer className="flex flex-wrap items-center justify-between gap-4 border-t border-border bg-cs-surface-2/40 px-6 py-4">
+      <footer className="flex flex-wrap items-center justify-between gap-4 border-t border-border bg-surface-elevated/40 px-6 py-4">
         <EvidenceBadge state={release.status === "planned" ? "unknown" : "inferred"} label={release.status === "planned" ? "Upcoming" : "Shipped"} />
         <RouterLink
           route="download"
-          className="group inline-flex items-center gap-2 rounded-md border border-border bg-cs-surface-2 px-3 py-2 text-sm text-fg-muted transition-colors hover:border-cs-border-strong hover:text-foreground"
+          className="group inline-flex items-center gap-2 rounded-md border border-border bg-surface-elevated px-3 py-2 text-sm text-fg-muted transition-colors hover:border-border-strong hover:text-fg"
         >
           <Download className="size-4" />
           Download latest

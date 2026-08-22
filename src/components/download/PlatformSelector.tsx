@@ -37,7 +37,7 @@ export function PlatformSelector({
         <div
           role="tablist"
           aria-label="Operating system"
-          className="inline-flex rounded-lg border border-border bg-cs-surface-1 p-1"
+          className="inline-flex rounded-lg border border-border bg-surface p-1"
         >
           {PLATFORM_OPTIONS.map((p) => {
             const active = p.id === platform;
@@ -51,8 +51,8 @@ export function PlatformSelector({
                 className={cn(
                   "inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm transition-colors",
                   active
-                    ? "bg-cs-surface-3 text-foreground"
-                    : "text-fg-muted hover:text-foreground"
+                    ? "bg-surface-hover text-fg"
+                    : "text-fg-muted hover:text-fg"
                 )}
               >
                 <Icon className="size-4" />
@@ -71,7 +71,7 @@ export function PlatformSelector({
           <div
             role="tablist"
             aria-label="CPU architecture"
-            className="inline-flex rounded-lg border border-border bg-cs-surface-1 p-1"
+            className="inline-flex rounded-lg border border-border bg-surface p-1"
           >
             {current.arches.map((a) => {
               const active = a === architecture;
@@ -84,8 +84,8 @@ export function PlatformSelector({
                   className={cn(
                     "rounded-md px-4 py-2 font-mono text-xs uppercase tracking-[0.12em] transition-colors",
                     active
-                      ? "bg-cs-surface-3 text-foreground"
-                      : "text-fg-muted hover:text-foreground"
+                      ? "bg-surface-hover text-fg"
+                      : "text-fg-muted hover:text-fg"
                   )}
                 >
                   {a}

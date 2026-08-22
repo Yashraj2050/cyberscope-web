@@ -154,7 +154,7 @@ const SECTIONS: Section[] = [
             "An adversary who can replace the application binary before install can subvert analysis — this is why checksum verification matters.",
           ].map((t) => (
             <li key={t} className="flex items-start gap-2">
-              <span className="mt-1.5 size-1 shrink-0 rounded-full bg-cs-accent" />
+              <span className="mt-1.5 size-1 shrink-0 rounded-full bg-accent" />
               {t}
             </li>
           ))}
@@ -177,7 +177,7 @@ const SECTIONS: Section[] = [
             "Preview builds have not undergone independent security audit.",
           ].map((t) => (
             <li key={t} className="flex items-start gap-2">
-              <span className="mt-1.5 size-1 shrink-0 rounded-full bg-cs-unknown" />
+              <span className="mt-1.5 size-1 shrink-0 rounded-full bg-warning" />
               {t}
             </li>
           ))}
@@ -207,7 +207,7 @@ export function SecurityView() {
                   <a
                     key={s.id}
                     href={`#${s.id}`}
-                    className="group flex items-center gap-3 rounded-md px-2 py-1.5 text-sm text-fg-muted transition-colors hover:bg-cs-surface-2 hover:text-foreground"
+                    className="group flex items-center gap-3 rounded-md px-2 py-1.5 text-sm text-fg-muted transition-colors hover:bg-surface-elevated hover:text-fg"
                   >
                     <span className="font-mono text-[11px] text-fg-subtle">
                       {String(i + 1).padStart(2, "0")}
@@ -228,9 +228,9 @@ export function SecurityView() {
                 <Reveal key={s.id} delay={i * 40}>
                   <section
                     id={s.id}
-                    className={`scroll-mt-24 rounded-xl border bg-cs-surface-1 p-6 md:p-8 ${
+                    className={`scroll-mt-24 rounded-lg border bg-surface p-6 md:p-8 ${
                       isLimitation
-                        ? "border-cs-unknown/30"
+                        ? "border-warning/30"
                         : "border-border"
                     }`}
                   >
@@ -238,13 +238,13 @@ export function SecurityView() {
                       <span
                         className={`inline-flex size-9 items-center justify-center rounded-md border ${
                           isLimitation
-                            ? "border-cs-unknown/30 bg-cs-unknown/10"
-                            : "border-cs-accent/30 bg-cs-accent/10"
+                            ? "border-border bg-surface-elevated"
+                            : "border-border bg-surface-elevated"
                         }`}
                       >
                         <Icon
                           className={`size-4 ${
-                            isLimitation ? "text-cs-unknown" : "text-cs-accent"
+                            isLimitation ? "text-warning" : "text-accent"
                           }`}
                         />
                       </span>
@@ -252,7 +252,7 @@ export function SecurityView() {
                         <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-fg-subtle">
                           {String(i + 1).padStart(2, "0")}
                         </span>
-                        <h2 className="text-xl font-semibold tracking-tight text-foreground">
+                        <h2 className="text-xl font-semibold tracking-tight text-fg">
                           {s.title}
                         </h2>
                       </div>

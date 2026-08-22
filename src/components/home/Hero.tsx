@@ -1,5 +1,5 @@
 import { Download, ArrowRight } from "lucide-react";
-import { Container, Eyebrow, RouterLink, StatusChip } from "@/components/primitives/ui";
+import { Container, Eyebrow, RouterLink, MonoLabel } from "@/components/primitives/ui";
 import { Reveal } from "@/components/primitives/Reveal";
 
 const STATUS_STRIP = [
@@ -11,37 +11,18 @@ const STATUS_STRIP = [
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-border">
-      {/* background grid */}
-      <div className="cs-grid-bg absolute inset-0 opacity-60" aria-hidden />
-      {/* fade the grid toward the bottom */}
-      <div
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background"
-        aria-hidden
-      />
-      {/* top hairline accent */}
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cs-accent/40 to-transparent"
-        aria-hidden
-      />
-      {/* subtle radial accent, restrained */}
-      <div
-        className="pointer-events-none absolute -top-40 right-[-10%] h-[420px] w-[420px] rounded-full opacity-[0.12] blur-3xl"
-        style={{ background: "radial-gradient(circle, #3cc9e8 0%, transparent 70%)" }}
-        aria-hidden
-      />
-
-      <Container className="relative">
-        <div className="flex flex-col gap-8 py-24 md:py-32 lg:py-40">
+    <section className="border-b border-border">
+      <Container>
+        <div className="flex flex-col gap-10 py-24 md:py-32 lg:py-40">
           {/* Brand lockup */}
           <Reveal>
             <div className="flex items-center gap-3">
-              <Eyebrow className="text-cs-accent">
+              <Eyebrow className="text-accent">
                 <svg
-                  width="16"
-                  height="16"
+                  width="15"
+                  height="15"
                   viewBox="0 0 32 32"
-                  className="text-cs-accent"
+                  className="text-accent"
                   aria-hidden
                 >
                   <circle
@@ -51,7 +32,7 @@ export function Hero() {
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="1.4"
-                    opacity="0.4"
+                    opacity="0.45"
                   />
                   <circle
                     cx="16"
@@ -59,7 +40,7 @@ export function Hero() {
                     r="5.2"
                     fill="none"
                     stroke="currentColor"
-                    strokeWidth="1.6"
+                    strokeWidth="1.5"
                   />
                   <circle cx="16" cy="16" r="1.8" fill="currentColor" />
                 </svg>
@@ -70,7 +51,7 @@ export function Hero() {
 
           {/* Headline */}
           <Reveal delay={60}>
-            <h1 className="max-w-4xl text-4xl font-semibold leading-[1.05] tracking-[-0.02em] text-foreground sm:text-5xl lg:text-6xl">
+            <h1 className="max-w-4xl text-4xl font-semibold leading-[1.06] tracking-[-0.02em] text-fg sm:text-5xl lg:text-6xl">
               Offline Attack Path
               <br />
               Reconstruction
@@ -91,14 +72,14 @@ export function Hero() {
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
               <RouterLink
                 route="download"
-                className="group inline-flex items-center justify-center gap-2 rounded-md bg-cs-accent px-5 py-3 text-sm font-medium text-[#06141a] transition-colors hover:bg-cs-accent-strong"
+                className="group inline-flex items-center justify-center gap-2 rounded-md bg-accent px-5 py-3 text-sm font-medium text-[#06141a] transition-colors hover:bg-accent-strong"
               >
                 <Download className="size-4" />
                 Download CyberScope
               </RouterLink>
               <RouterLink
                 route="architecture"
-                className="group inline-flex items-center justify-center gap-2 rounded-md border border-cs-border-strong bg-cs-surface-1 px-5 py-3 text-sm font-medium text-foreground transition-colors hover:bg-cs-surface-3"
+                className="group inline-flex items-center justify-center gap-2 rounded-md border border-border-strong bg-surface px-5 py-3 text-sm font-medium text-fg transition-colors hover:bg-surface-hover"
               >
                 Explore the Architecture
                 <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" />
@@ -113,11 +94,11 @@ export function Hero() {
                 <div key={s} className="flex items-center gap-6">
                   {i > 0 && (
                     <span
-                      className="hidden size-1 rounded-full bg-fg-subtle sm:block"
+                      className="hidden h-3 w-px bg-border sm:block"
                       aria-hidden
                     />
                   )}
-                  <StatusChip>{s}</StatusChip>
+                  <MonoLabel>{s}</MonoLabel>
                 </div>
               ))}
             </div>

@@ -51,9 +51,9 @@ export function ContactView() {
             return (
               <Reveal key={c.title} delay={i * 70}>
                 <div
-                  className={`flex h-full flex-col gap-4 rounded-lg border bg-cs-surface-1 p-6 ${
+                  className={`flex h-full flex-col gap-4 rounded-lg border bg-surface p-6 ${
                     c.tone === "amber"
-                      ? "border-cs-unknown/30 cs-hairline-top"
+                      ? "border-warning/30"
                       : "border-border"
                   }`}
                 >
@@ -61,13 +61,13 @@ export function ContactView() {
                     <span
                       className={`inline-flex size-10 items-center justify-center rounded-md border ${
                         c.tone === "amber"
-                          ? "border-cs-unknown/30 bg-cs-unknown/10"
-                          : "border-cs-accent/30 bg-cs-accent/10"
+                          ? "border-border bg-surface-elevated"
+                          : "border-border bg-surface-elevated"
                       }`}
                     >
                       <Icon
                         className={`size-5 ${
-                          c.tone === "amber" ? "text-cs-unknown" : "text-cs-accent"
+                          c.tone === "amber" ? "text-warning" : "text-accent"
                         }`}
                       />
                     </span>
@@ -76,12 +76,12 @@ export function ContactView() {
                     </span>
                   </div>
                   <div>
-                    <h3 className="text-base font-semibold text-foreground">
+                    <h3 className="text-base font-semibold text-fg">
                       {c.title}
                     </h3>
                     <a
                       href={`mailto:${c.handle}`}
-                      className="group mt-1.5 inline-flex items-center gap-1.5 font-mono text-sm text-cs-accent hover:text-cs-accent-strong"
+                      className="group mt-1.5 inline-flex items-center gap-1.5 font-mono text-sm text-accent hover:text-accent-strong"
                     >
                       <Mail className="size-3.5" />
                       {c.handle}
@@ -97,11 +97,11 @@ export function ContactView() {
         </div>
 
         <Reveal delay={160}>
-          <div className="mt-8 rounded-xl border border-border bg-cs-surface-1 p-6 md:p-8">
+          <div className="mt-8 rounded-lg border border-border bg-surface p-6 md:p-8">
             <Eyebrow>When you write</Eyebrow>
             <div className="mt-5 grid gap-8 md:grid-cols-2">
               <div>
-                <h3 className="text-sm font-semibold text-foreground">
+                <h3 className="text-sm font-semibold text-fg">
                   Include in every report
                 </h3>
                 <ul className="mt-3 flex flex-col gap-2 text-sm text-fg-muted">
@@ -112,14 +112,14 @@ export function ContactView() {
                     "Steps to reproduce, if applicable.",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2">
-                      <span className="mt-1.5 size-1 shrink-0 rounded-full bg-cs-accent" />
+                      <span className="mt-1.5 size-1 shrink-0 rounded-full bg-accent" />
                       {item}
                     </li>
                   ))}
                 </ul>
               </div>
               <div>
-                <h3 className="text-sm font-semibold text-foreground">
+                <h3 className="text-sm font-semibold text-fg">
                   Do not send
                 </h3>
                 <ul className="mt-3 flex flex-col gap-2 text-sm text-fg-muted">
@@ -129,7 +129,7 @@ export function ContactView() {
                     "Full event dumps — a minimal reproducer is enough.",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2">
-                      <span className="mt-1.5 size-1 shrink-0 rounded-full bg-cs-unknown" />
+                      <span className="mt-1.5 size-1 shrink-0 rounded-full bg-warning" />
                       {item}
                     </li>
                   ))}

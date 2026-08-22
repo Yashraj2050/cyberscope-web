@@ -36,7 +36,7 @@ const COLUMNS: { title: string; links: { label: string; route: RouteId }[] }[] =
 
 export function Footer() {
   return (
-    <footer className="mt-auto border-t border-border bg-cs-surface-1">
+    <footer className="mt-auto border-t border-border bg-surface">
       <Container>
         <div className="grid gap-10 py-14 md:grid-cols-12">
           {/* Brand */}
@@ -46,7 +46,7 @@ export function Footer() {
                 width="22"
                 height="22"
                 viewBox="0 0 32 32"
-                className="text-cs-accent"
+                className="text-accent"
                 aria-hidden
               >
                 <rect width="32" height="32" rx="7" fill="#121a24" />
@@ -76,7 +76,7 @@ export function Footer() {
                   opacity="0.75"
                 />
               </svg>
-              <span className="text-[15px] font-semibold tracking-tight text-foreground">
+              <span className="text-[15px] font-semibold tracking-tight text-fg">
                 {SITE.name}
               </span>
             </div>
@@ -85,11 +85,11 @@ export function Footer() {
               missing attack-path transitions and evaluating evidence strength.
             </p>
             <div className="mt-5 flex flex-wrap items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-md border border-border bg-cs-surface-2 px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-fg-muted">
-                <ShieldCheck className="size-3 text-cs-observed" />
+              <span className="inline-flex items-center gap-1.5 rounded-md border border-border bg-surface-elevated px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-fg-muted">
+                <ShieldCheck className="size-3 text-success" />
                 Local-first
               </span>
-              <span className="inline-flex items-center gap-1.5 rounded-md border border-border bg-cs-surface-2 px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-fg-muted">
+              <span className="inline-flex items-center gap-1.5 rounded-md border border-border bg-surface-elevated px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-fg-muted">
                 Offline analysis
               </span>
             </div>
@@ -107,7 +107,7 @@ export function Footer() {
                     <li key={link.route}>
                       <a
                         href={routerHref(link.route)}
-                        className="text-sm text-fg-muted transition-colors hover:text-foreground"
+                        className="text-sm text-fg-muted transition-colors hover:text-fg"
                       >
                         {link.label}
                       </a>
@@ -134,20 +134,20 @@ export function Footer() {
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground"
+              className="inline-flex items-center gap-1.5 transition-colors hover:text-fg"
             >
               <Github className="size-3.5" />
               Source
             </a>
             <a
               href={routerHref("security")}
-              className="transition-colors hover:text-foreground"
+              className="transition-colors hover:text-fg"
             >
               Security
             </a>
             <a
               href={routerHref("contact")}
-              className="transition-colors hover:text-foreground"
+              className="transition-colors hover:text-fg"
             >
               Contact
             </a>

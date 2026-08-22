@@ -72,10 +72,10 @@ export function DownloadView() {
           <div className="lg:col-span-8">
             {/* Preview notice */}
             <Reveal>
-              <div className="mb-8 flex items-start gap-3 rounded-lg border border-cs-unknown/30 bg-cs-unknown/[0.06] p-4">
-                <AlertTriangle className="mt-0.5 size-4 shrink-0 text-cs-unknown" />
+              <div className="mb-8 flex items-start gap-3 rounded-lg border border-warning/30 bg-surface p-4">
+                <AlertTriangle className="mt-0.5 size-4 shrink-0 text-warning" />
                 <div>
-                  <p className="text-sm text-foreground/90">
+                  <p className="text-sm text-fg/90">
                     {RELEASE_DATA_NOTICE}
                   </p>
                   <p className="mt-1 text-xs text-fg-subtle">
@@ -97,11 +97,11 @@ export function DownloadView() {
 
             {/* Release panel */}
             <Reveal delay={120}>
-              <div className="mt-8 overflow-hidden rounded-xl border border-border bg-cs-surface-1">
+              <div className="mt-8 overflow-hidden rounded-lg border border-border bg-surface">
                 {/* Panel header */}
                 <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border px-6 py-5">
                   <div className="flex items-center gap-3">
-                    <h2 className="text-xl font-semibold tracking-tight text-foreground">
+                    <h2 className="text-xl font-semibold tracking-tight text-fg">
                       CyberScope {release.version}
                     </h2>
                     <StatusChip tone={release.status === "stable" ? "observed" : "amber"}>
@@ -145,11 +145,11 @@ export function DownloadView() {
                         className="flex flex-col gap-4 border-b border-border py-4 last:border-0 md:flex-row md:items-center md:justify-between"
                       >
                         <div className="flex items-center gap-3">
-                          <span className="inline-flex size-9 items-center justify-center rounded-md border border-border bg-cs-surface-2">
+                          <span className="inline-flex size-9 items-center justify-center rounded-md border border-border bg-surface-elevated">
                             <FileText className="size-4 text-fg-muted" />
                           </span>
                           <div className="flex flex-col">
-                            <span className="font-mono text-sm uppercase tracking-[0.08em] text-foreground">
+                            <span className="font-mono text-sm uppercase tracking-[0.08em] text-fg">
                               .{artifact.packageType}
                             </span>
                             <span className="text-xs text-fg-subtle">
@@ -159,7 +159,7 @@ export function DownloadView() {
                         </div>
 
                         <div className="flex flex-wrap items-center gap-2">
-                          <code className="max-w-[240px] truncate rounded border border-border bg-cs-surface-2 px-2 py-1 font-mono text-[11px] text-fg-subtle">
+                          <code className="max-w-[240px] truncate rounded border border-border bg-surface-elevated px-2 py-1 font-mono text-[11px] text-fg-subtle">
                             {artifact.checksum}
                           </code>
                           <CopyButton
@@ -168,7 +168,7 @@ export function DownloadView() {
                           />
                           <a
                             href={artifact.downloadUrl}
-                            className="group inline-flex items-center gap-2 rounded-md bg-cs-accent px-4 py-2 text-sm font-medium text-[#06141a] transition-colors hover:bg-cs-accent-strong"
+                            className="group inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2 text-sm font-medium text-[#06141a] transition-colors hover:bg-accent-strong"
                           >
                             <Download className="size-4" />
                             Download
@@ -180,11 +180,11 @@ export function DownloadView() {
                 </div>
 
                 {/* Panel footer */}
-                <div className="flex flex-wrap items-center justify-between gap-4 border-t border-border bg-cs-surface-2/50 px-6 py-4">
+                <div className="flex flex-wrap items-center justify-between gap-4 border-t border-border bg-surface-elevated/50 px-6 py-4">
                   <ChecksumsDialog release={release} />
                   <RouterLink
                     route="releases"
-                    className="group inline-flex items-center gap-1.5 text-sm text-cs-accent hover:text-cs-accent-strong"
+                    className="group inline-flex items-center gap-1.5 text-sm text-accent hover:text-accent-strong"
                   >
                     Release notes
                     <LinkArrow />
@@ -197,10 +197,10 @@ export function DownloadView() {
           {/* Right: verification + requirements sidebar */}
           <aside className="lg:col-span-4">
             <Reveal delay={160}>
-              <div className="flex flex-col gap-4 rounded-xl border border-border bg-cs-surface-1 p-6">
+              <div className="flex flex-col gap-4 rounded-lg border border-border bg-surface p-6">
                 <div className="flex items-center gap-2">
-                  <ShieldCheck className="size-4 text-cs-observed" />
-                  <h3 className="text-sm font-semibold text-foreground">
+                  <ShieldCheck className="size-4 text-success" />
+                  <h3 className="text-sm font-semibold text-fg">
                     Verify before installing
                   </h3>
                 </div>
@@ -219,34 +219,34 @@ Get-FileHash <file> -Algorithm SHA256`}</code>
             </Reveal>
 
             <Reveal delay={220}>
-              <div className="mt-4 flex flex-col gap-4 rounded-xl border border-border bg-cs-surface-1 p-6">
-                <h3 className="text-sm font-semibold text-foreground">
+              <div className="mt-4 flex flex-col gap-4 rounded-lg border border-border bg-surface p-6">
+                <h3 className="text-sm font-semibold text-fg">
                   Before you download
                 </h3>
                 <ul className="flex flex-col gap-3 text-sm text-fg-muted">
                   <li className="flex items-start gap-2">
-                    <span className="mt-1.5 size-1 shrink-0 rounded-full bg-cs-accent" />
+                    <span className="mt-1.5 size-1 shrink-0 rounded-full bg-accent" />
                     Check the system requirements for your platform.
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="mt-1.5 size-1 shrink-0 rounded-full bg-cs-accent" />
+                    <span className="mt-1.5 size-1 shrink-0 rounded-full bg-accent" />
                     Review the security model and offline operation notes.
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="mt-1.5 size-1 shrink-0 rounded-full bg-cs-accent" />
+                    <span className="mt-1.5 size-1 shrink-0 rounded-full bg-accent" />
                     Read the release notes for breaking changes.
                   </li>
                 </ul>
                 <div className="flex flex-col gap-2 border-t border-border pt-4">
                   <RouterLink
                     route="system"
-                    className="group inline-flex items-center justify-between rounded-md border border-border bg-cs-surface-2 px-3 py-2 text-sm text-fg-muted hover:text-foreground"
+                    className="group inline-flex items-center justify-between rounded-md border border-border bg-surface-elevated px-3 py-2 text-sm text-fg-muted hover:text-fg"
                   >
                     System requirements <LinkArrow />
                   </RouterLink>
                   <RouterLink
                     route="security"
-                    className="group inline-flex items-center justify-between rounded-md border border-border bg-cs-surface-2 px-3 py-2 text-sm text-fg-muted hover:text-foreground"
+                    className="group inline-flex items-center justify-between rounded-md border border-border bg-surface-elevated px-3 py-2 text-sm text-fg-muted hover:text-fg"
                   >
                     Security model <LinkArrow />
                   </RouterLink>
@@ -270,15 +270,15 @@ function ChecksumsDialog({
       <DialogTrigger asChild>
         <button
           type="button"
-          className="inline-flex items-center gap-2 rounded-md border border-border bg-cs-surface-2 px-3 py-2 text-sm text-fg-muted transition-colors hover:border-cs-border-strong hover:text-foreground"
+          className="inline-flex items-center gap-2 rounded-md border border-border bg-surface-elevated px-3 py-2 text-sm text-fg-muted transition-colors hover:border-border-strong hover:text-fg"
         >
           <ShieldCheck className="size-4" />
           View checksums
         </button>
       </DialogTrigger>
-      <DialogContent className="max-w-2xl border-border bg-cs-surface-2">
+      <DialogContent className="max-w-2xl border-border bg-surface-elevated">
         <DialogHeader>
-          <DialogTitle className="text-lg font-semibold tracking-tight text-foreground">
+          <DialogTitle className="text-lg font-semibold tracking-tight text-fg">
             CyberScope {release.version} — SHA-256 checksums
           </DialogTitle>
           <DialogDescription className="text-fg-muted">
@@ -288,7 +288,7 @@ function ChecksumsDialog({
         </DialogHeader>
         <div className="max-h-[60vh] overflow-y-auto">
           <table className="w-full text-left text-sm">
-            <thead className="sticky top-0 bg-cs-surface-2">
+            <thead className="sticky top-0 bg-surface-elevated">
               <tr className="border-b border-border">
                 <th className="py-2 pr-4 font-mono text-[11px] uppercase tracking-[0.14em] text-fg-subtle">
                   Package
@@ -308,7 +308,7 @@ function ChecksumsDialog({
                   className="border-b border-border/60 align-top"
                 >
                   <td className="py-3 pr-4">
-                    <span className="font-mono text-xs text-foreground">
+                    <span className="font-mono text-xs text-fg">
                       .{a.packageType}
                     </span>
                     <div className="font-mono text-[11px] text-fg-subtle">
@@ -338,7 +338,7 @@ function ChecksumsDialog({
             <button
               type="button"
               className={cn(
-                "inline-flex items-center justify-center rounded-md bg-cs-surface-3 px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-cs-surface-3/80"
+                "inline-flex items-center justify-center rounded-md bg-surface-hover px-4 py-2 text-sm font-medium text-fg transition-colors hover:bg-surface-hover/80"
               )}
             >
               Close

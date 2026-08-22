@@ -56,21 +56,19 @@ export function TrustBoundary() {
             <Reveal key={s.state} delay={i * 70}>
               <div
                 className={cn(
-                  "flex h-full flex-col gap-4 rounded-lg border bg-cs-surface-1 p-6",
-                  s.emphasis
-                    ? "border-cs-unknown/40 cs-hairline-top"
-                    : "border-border"
+                  "flex h-full flex-col gap-4 rounded-lg border bg-surface p-6",
+                  s.emphasis ? "border-warning/40" : "border-border"
                 )}
               >
                 <div className="flex items-center justify-between">
                   <EvidenceBadge state={s.state} />
                   {s.emphasis && (
-                    <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-cs-unknown">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-warning">
                       Central concept
                     </span>
                   )}
                 </div>
-                <h3 className="text-lg font-semibold tracking-tight text-foreground">
+                <h3 className="text-lg font-semibold tracking-tight text-fg">
                   {s.title}
                 </h3>
                 <p className="flex-1 text-sm leading-relaxed text-fg-muted">
@@ -87,9 +85,9 @@ export function TrustBoundary() {
         </div>
 
         <Reveal delay={120}>
-          <div className="rounded-lg border border-cs-unknown/30 bg-cs-unknown/[0.05] p-6">
-            <p className="text-base leading-relaxed text-foreground/90 md:text-lg">
-              <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-cs-unknown">
+          <div className="rounded-lg border border-border bg-surface p-6">
+            <p className="text-base leading-relaxed text-fg/90 md:text-lg">
+              <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-warning">
                 Principle
               </span>
               <br />

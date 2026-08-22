@@ -12,22 +12,11 @@ export function DownloadCTA() {
   return (
     <Section>
       <Reveal>
-        <div className="relative overflow-hidden rounded-xl border border-border bg-cs-surface-1 p-8 md:p-12">
-          <div
-            className="pointer-events-none absolute inset-0 opacity-50 cs-grid-bg"
-            aria-hidden
-          />
-          <div
-            className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full opacity-[0.1] blur-3xl"
-            style={{
-              background: "radial-gradient(circle, #3cc9e8 0%, transparent 70%)",
-            }}
-            aria-hidden
-          />
-          <div className="relative flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+        <div className="rounded-lg border border-border bg-surface p-8 md:p-12">
+          <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
             <div className="flex max-w-xl flex-col gap-4">
               <Eyebrow>Get CyberScope</Eyebrow>
-              <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+              <h2 className="text-3xl font-semibold tracking-tight text-fg md:text-4xl">
                 Run attack-path reconstruction locally.
               </h2>
               <p className="text-base leading-relaxed text-fg-muted">
@@ -41,14 +30,14 @@ export function DownloadCTA() {
             <div className="flex flex-col gap-3 sm:flex-row md:flex-col lg:flex-row">
               <RouterLink
                 route="download"
-                className="group inline-flex items-center justify-center gap-2 rounded-md bg-cs-accent px-5 py-3 text-sm font-medium text-[#06141a] transition-colors hover:bg-cs-accent-strong"
+                className="group inline-flex items-center justify-center gap-2 rounded-md bg-accent px-5 py-3 text-sm font-medium text-[#06141a] transition-colors hover:bg-accent-strong"
               >
                 <Download className="size-4" />
                 Download CyberScope
               </RouterLink>
               <RouterLink
                 route="releases"
-                className="group inline-flex items-center justify-center gap-2 rounded-md border border-cs-border-strong bg-cs-surface-2 px-5 py-3 text-sm font-medium text-foreground transition-colors hover:bg-cs-surface-3"
+                className="group inline-flex items-center justify-center gap-2 rounded-md border border-border-strong bg-surface-elevated px-5 py-3 text-sm font-medium text-fg transition-colors hover:bg-surface-hover"
               >
                 View releases
                 <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" />
