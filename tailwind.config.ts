@@ -50,7 +50,19 @@ const config: Config = {
   				'3': 'hsl(var(--chart-3))',
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
-  			}
+  			},
+  			'cs-surface': 'var(--cs-surface)',
+  			'cs-surface-elevated': 'var(--cs-surface-elevated)',
+  			'cs-surface-hover': 'var(--cs-surface-hover)',
+  			'cs-fg': 'var(--cs-fg)',
+  			'cs-fg-muted': 'var(--cs-fg-muted)',
+  			'cs-fg-subtle': 'var(--cs-fg-subtle)',
+  			'cs-accent': 'var(--cs-accent)',
+  			'cs-accent-strong': 'var(--cs-accent-strong)',
+  			'cs-warning': 'var(--cs-warning)',
+  			'cs-success': 'var(--cs-success)',
+  			'cs-error': 'var(--cs-error)',
+  			'border-strong': 'var(--cs-border-strong)',
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

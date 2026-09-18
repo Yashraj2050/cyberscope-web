@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 const STATES = [
   {
     state: "observed" as const,
-    title: "Seen in the telemetry",
+    title: "Directly supported by telemetry.",
     definition:
       "The transition was directly present in the input record. It was recorded as it happened, with no reconstruction required.",
     means: "Treat as fact.",
@@ -18,7 +18,7 @@ const STATES = [
   },
   {
     state: "inferred" as const,
-    title: "Reconstructed and verified",
+    title: "Supported by available evidence but not directly observed.",
     definition:
       "A generated candidate that the available evidence supports over its alternatives. Defensible — but not directly observed.",
     means: "Treat as a reasoned conclusion.",
@@ -26,7 +26,7 @@ const STATES = [
   },
   {
     state: "unknown" as const,
-    title: "Evidence is insufficient",
+    title: "Evidence is insufficient to distinguish between explanations.",
     definition:
       "The evidence cannot distinguish between competing candidates. CyberScope marks the transition UNKNOWN instead of choosing one.",
     means: "Treat as an open question.",
@@ -91,9 +91,8 @@ export function TrustBoundary() {
                 Principle
               </span>
               <br />
-              When the evidence cannot distinguish between competing
-              explanations, CyberScope abstains. UNKNOWN is not a failure — it
-              is an honest statement about the limit of the available evidence.
+              <strong className="text-fg font-semibold">UNKNOWN is an intentional trust boundary.</strong> When the evidence cannot distinguish between competing
+              explanations, CyberScope abstains. It is an honest statement about the limit of the available evidence.
             </p>
           </div>
         </Reveal>

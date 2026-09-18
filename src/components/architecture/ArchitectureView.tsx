@@ -170,13 +170,39 @@ export function ArchitectureView() {
 
             <Reveal delay={180}>
               <LayerGroup label="Analysis pipeline" meta="staged">
-                <Node icon={Target} label="Gap Detection" sub="6 signals" />
-                <Arrow />
-                <Node icon={GitBranch} label="Candidate Gen" sub="scored" />
-                <Arrow />
-                <Node icon={Scale} label="Scoring" sub="weighted" />
-                <Arrow />
-                <Node icon={ShieldCheck} label="Verification" sub="sufficiency" />
+                <div className="flex flex-col items-center w-full">
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center w-full justify-between gap-2">
+                    <Node icon={Target} label="Gap Detection" sub="6 signals" />
+                    <Arrow />
+                    <Node icon={GitBranch} label="Candidate Gen" sub="scored" />
+                    <Arrow />
+                    <Node icon={Scale} label="Scoring" sub="weighted" />
+                    <Arrow />
+                    <Node icon={ShieldCheck} label="Verification" sub="sufficiency" />
+                  </div>
+                  
+                  <div className="flex flex-col items-center w-full mt-2">
+                    <div className="h-6 w-px bg-border-strong" />
+                    <div className="w-[80%] h-px bg-border-strong relative">
+                      {/* Connectors to outcomes */}
+                      <div className="absolute left-0 top-0 w-px h-4 bg-border-strong" />
+                      <div className="absolute left-1/2 top-0 w-px h-4 bg-border-strong -translate-x-1/2" />
+                      <div className="absolute right-0 top-0 w-px h-4 bg-border-strong" />
+                    </div>
+                    
+                    <div className="mt-4 w-[90%] grid grid-cols-3 gap-3 text-center text-[10px] font-mono font-semibold uppercase tracking-[0.16em]">
+                      <div className="text-cs-success border-t border-cs-success/30 pt-2">
+                        OBSERVED
+                      </div>
+                      <div className="text-cs-accent border-t border-cs-accent/30 pt-2">
+                        INFERRED
+                      </div>
+                      <div className="text-cs-warning border-t border-cs-warning/30 pt-2">
+                        UNKNOWN
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </LayerGroup>
             </Reveal>
 
