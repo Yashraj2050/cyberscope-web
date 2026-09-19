@@ -8,6 +8,9 @@ export const SITE = {
     "CyberScope is a local-first cybersecurity application for reconstructing missing attack-path transitions and evaluating evidence strength.",
 } as const;
 
+export const REPO_URL = "https://github.com/Yashraj2050/cyberscope";
+export const DEMO_VIDEO_URL = ""; // Empty string indicates video placeholder state until actual URL is provided
+
 /**
  * Primary navigation. Mirrors the brief:
  *   CyberScope · Product · Architecture · Documentation · Security   [Download]

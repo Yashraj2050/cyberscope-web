@@ -4,7 +4,7 @@ import { Github, ShieldCheck } from "lucide-react";
 import type { RouteId } from "@/lib/types";
 import { routerHref } from "@/lib/router";
 import { Container } from "@/components/primitives/ui";
-import { SITE } from "@/lib/constants";
+import { SITE, REPO_URL } from "@/lib/constants";
 
 const COLUMNS: { title: string; links: { label: string; route: RouteId }[] }[] =
   [
@@ -126,12 +126,12 @@ export function Footer() {
             </span>
             <span className="hidden sm:inline">·</span>
             <span className="font-mono uppercase tracking-[0.12em]">
-              Preview software — not a public release
+              SIH 2026 Prototype · Offline-first Desktop Application
             </span>
           </div>
           <div className="flex items-center gap-4 text-xs text-fg-subtle">
             <a
-              href="https://github.com"
+              href={REPO_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 transition-colors hover:text-fg"

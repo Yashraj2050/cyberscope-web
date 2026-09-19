@@ -11,8 +11,7 @@ export const PLATFORM_OPTIONS: {
   arches: Architecture[];
 }[] = [
   { id: "windows", label: "Windows", icon: Monitor, arches: ["x64"] },
-  { id: "macos", label: "macOS", icon: Apple, arches: ["x64", "arm64"] },
-  { id: "linux", label: "Linux", icon: Terminal, arches: ["x64"] },
+  { id: "macos", label: "macOS", icon: Apple, arches: ["arm64"] },
 ];
 
 export function PlatformSelector({

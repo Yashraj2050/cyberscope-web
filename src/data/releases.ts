@@ -3,251 +3,92 @@ import type { Release } from "@/lib/types";
 /**
  * CyberScope release metadata.
  *
- * ─────────────────────────────────────────────────────────────────────────
- *  MOCK / PREVIEW DATA
- *  These artifacts are NOT a public release. Download URLs and SHA-256
- *  checksums are placeholders so the distribution UI can be built and
- *  validated before a real release backend is connected.
- *
- *  To wire real releases: replace the array returned by `getReleases()`
- *  (or swap this module for a fetched source) — the UI consumes only the
- *  `Release` type and never reads URLs directly.
- * ─────────────────────────────────────────────────────────────────────────
+ * All verified binary packages are published and hosted directly on GitHub Releases:
+ * https://github.com/Yashraj2050/cyberscope/releases
  */
 
-export const RELEASE_DATA_SOURCE = "mock-preview" as const;
+export const RELEASE_DATA_SOURCE = "github-release" as const;
 export const RELEASE_DATA_NOTICE =
-  "Preview build — not a public release. Download links are placeholders.";
-
-const PLACEHOLDER_URL = "#preview-build";
+  "SIH 2026 Prototype — Verified release binaries hosted via GitHub Releases.";
 
 export const RELEASES: Release[] = [
   {
-    version: "0.4.0",
-    releaseDate: "2025-02-18",
-    status: "beta",
-    tagline: "Six gap signals, candidate scoring, and the evidence classifier.",
+    version: "0.1.0",
+    releaseDate: "2026-09-18",
+    status: "stable",
+    tagline: "SIH 2026 Prototype — Offline Attack Path Reconstruction & Evidence Analysis.",
     artifacts: [
-      {
-        platform: "windows",
-        architecture: "x64",
-        packageType: "msi",
-        downloadUrl: PLACEHOLDER_URL,
-        checksum:
-          "placeholder:0000000000000000000000000000000000000000000000000000000000000400",
-        size: "84.6 MB",
-      },
       {
         platform: "windows",
         architecture: "x64",
         packageType: "exe",
-        downloadUrl: PLACEHOLDER_URL,
+        downloadUrl:
+          "https://github.com/Yashraj2050/cyberscope/releases/download/v0.1.0/cyberscope_0.1.0_x64-setup.exe",
         checksum:
-          "placeholder:0000000000000000000000000000000000000000000000000000000000000400",
-        size: "82.1 MB",
+          "b0654a13a21bb49d8247e25e5ccfe1166992c782583650ed4d09bf4da2151cad",
+        size: "56.7 MB",
       },
       {
-        platform: "macos",
+        platform: "windows",
         architecture: "x64",
-        packageType: "dmg",
-        downloadUrl: PLACEHOLDER_URL,
+        packageType: "msi",
+        downloadUrl:
+          "https://github.com/Yashraj2050/cyberscope/releases/download/v0.1.0/cyberscope_0.1.0_x64_en-US.msi",
         checksum:
-          "placeholder:0000000000000000000000000000000000000000000000000000000000000400",
-        size: "91.4 MB",
+          "9a2cc19ddb914659733c773b11d79aaa1fc61c57110dee6c234665dfeb60a73b",
+        size: "57.7 MB",
       },
       {
         platform: "macos",
         architecture: "arm64",
         packageType: "dmg",
-        downloadUrl: PLACEHOLDER_URL,
+        downloadUrl:
+          "https://github.com/Yashraj2050/cyberscope/releases/download/v0.1.0/cyberscope_0.1.0_aarch64.dmg",
         checksum:
-          "placeholder:0000000000000000000000000000000000000000000000000000000000000400",
-        size: "88.9 MB",
-      },
-      {
-        platform: "linux",
-        architecture: "x64",
-        packageType: "appimage",
-        downloadUrl: PLACEHOLDER_URL,
-        checksum:
-          "placeholder:0000000000000000000000000000000000000000000000000000000000000400",
-        size: "96.2 MB",
-      },
-      {
-        platform: "linux",
-        architecture: "x64",
-        packageType: "deb",
-        downloadUrl: PLACEHOLDER_URL,
-        checksum:
-          "placeholder:0000000000000000000000000000000000000000000000000000000000000400",
-        size: "78.8 MB",
+          "7df5206d7a6c9325b51cfaf062e281fd17008c094d07438dd5d82fe6d485ba50",
+        size: "18.2 MB",
       },
     ],
     highlights: [
-      "All six gap signals implemented: technique transition, behavioral prerequisite, host, user, process, and temporal consistency.",
-      "Candidate generation produces scored transitions for every detected gap.",
-      "OBSERVED / INFERRED / UNKNOWN classifier applied across the reconstructed graph.",
-      "Strict ground-truth isolation during evaluation — inferred candidates never leak into observed evidence.",
+      "Offline-first causal attack graph reconstruction powered by NetworkX.",
+      "Six-signal consistency checks: technique transitions, behavioral prerequisites, host, user, process hierarchy, and temporal consistency.",
+      "Candidate hypothesis generation with structured, weighted evidence scoring.",
+      "Evidence verification gating: OBSERVED, INFERRED, or UNKNOWN trust boundary.",
+      "Deterministic verification safeguards ensuring air-gapped local execution without external network calls.",
     ],
     changes: [
-      "Added structured candidate scoring with configurable signal weights.",
-      "NetworkX attack graph now annotates every edge with an evidence state.",
-      "Evidence verification step gates which candidates are surfaced to the UI.",
-      "Local FastAPI backend exposes a stable analysis surface to the Tauri shell.",
+      "Integrated desktop Tauri shell with packaged local Python backend.",
+      "Added Investigation views: Overview, Timeline, Attack Graph, Telemetry, and Reports.",
+      "Added top-level Evaluation benchmark dashboard and Settings views.",
+      "Enforced strict loopback binding (127.0.0.1) for zero outbound network traffic during analysis.",
     ],
     fixes: [
-      "Fixed graph re-build losing host context on partial telemetry reloads.",
-      "Resolved timestamp normalization for cross-source event ordering.",
+      "Fixed top-level vertical scrolling for Evaluation and Settings screens.",
+      "Resolved cross-process event ordering and timestamp normalization.",
     ],
     security: [
-      "Engine runs entirely offline; no outbound network calls during analysis.",
-      "PyInstaller-packaged engine bundled into the desktop build.",
+      "Core investigation runs entirely offline; no external network or cloud dependency.",
+      "Local engine packaged and embedded directly within the native desktop bundle.",
     ],
     notes:
-      "First release with the full reconstruction pipeline (validation → graph → gaps → candidates → scoring → verification).",
-  },
-  {
-    version: "0.3.2",
-    releaseDate: "2025-01-22",
-    status: "beta",
-    tagline: "Graph engine refactor and gap-detection performance.",
-    artifacts: [
-      {
-        platform: "windows",
-        architecture: "x64",
-        packageType: "msi",
-        downloadUrl: PLACEHOLDER_URL,
-        checksum:
-          "placeholder:0000000000000000000000000000000000000000000000000000000000000320",
-        size: "79.3 MB",
-      },
-      {
-        platform: "macos",
-        architecture: "arm64",
-        packageType: "dmg",
-        downloadUrl: PLACEHOLDER_URL,
-        checksum:
-          "placeholder:0000000000000000000000000000000000000000000000000000000000000320",
-        size: "85.7 MB",
-      },
-      {
-        platform: "linux",
-        architecture: "x64",
-        packageType: "appimage",
-        downloadUrl: PLACEHOLDER_URL,
-        checksum:
-          "placeholder:0000000000000000000000000000000000000000000000000000000000000320",
-        size: "92.0 MB",
-      },
-    ],
-    highlights: [
-      "Refactored NetworkX graph engine to a typed node/edge model.",
-      "Gap detection runs in a single traversal instead of per-signal passes.",
-    ],
-    changes: [
-      "Introduced CyberEvent identity hashing for deduplication.",
-      "Reorganized the Python engine into discrete pipeline stages.",
-    ],
-    fixes: [
-      "Corrected adjacency construction when multiple events share a timestamp.",
-      "Fixed UI desync between graph selection and event detail panel.",
-    ],
-    security: [],
-    notes:
-      "Recommended upgrade for anyone on 0.3.x. Introduces the internal stage boundaries the scoring layer depends on.",
-  },
-  {
-    version: "0.3.0",
-    releaseDate: "2024-12-09",
-    status: "beta",
-    tagline: "Local FastAPI backend and Pydantic event validation.",
-    artifacts: [
-      {
-        platform: "windows",
-        architecture: "x64",
-        packageType: "msi",
-        downloadUrl: PLACEHOLDER_URL,
-        checksum:
-          "placeholder:0000000000000000000000000000000000000000000000000000000000000300",
-        size: "76.9 MB",
-      },
-      {
-        platform: "macos",
-        architecture: "arm64",
-        packageType: "dmg",
-        downloadUrl: PLACEHOLDER_URL,
-        checksum:
-          "placeholder:0000000000000000000000000000000000000000000000000000000000000300",
-        size: "83.1 MB",
-      },
-    ],
-    highlights: [
-      "Local FastAPI backend serves the analysis surface to the desktop UI.",
-      "Pydantic-validated CyberEvent schema rejects malformed telemetry early.",
-    ],
-    changes: [
-      "Added the first three gap signals: technique transition, host, and temporal consistency.",
-      "Attack graph construction now accepts normalized CyberEvent streams.",
-    ],
-    fixes: [],
-    security: ["Backend binds to the loopback interface only."],
-    notes:
-      "The first release that runs the reconstruction pipeline end-to-end on a local machine.",
+      "Official SIH 2026 Evaluation Prototype. Packaged for Windows (x64) and macOS (Apple Silicon). The downloaded application runs 100% locally and does not require internet connectivity.",
   },
   {
     version: "0.2.0",
-    releaseDate: "2024-10-30",
-    status: "beta",
-    tagline: "Initial Tauri + React shell with a packaged local engine.",
-    artifacts: [
-      {
-        platform: "windows",
-        architecture: "x64",
-        packageType: "msi",
-        downloadUrl: PLACEHOLDER_URL,
-        checksum:
-          "placeholder:0000000000000000000000000000000000000000000000000000000000000200",
-        size: "71.4 MB",
-      },
-      {
-        platform: "macos",
-        architecture: "arm64",
-        packageType: "dmg",
-        downloadUrl: PLACEHOLDER_URL,
-        checksum:
-          "placeholder:0000000000000000000000000000000000000000000000000000000000000200",
-        size: "77.6 MB",
-      },
-    ],
-    highlights: [
-      "Tauri desktop shell wrapping a React UI.",
-      "Python analysis engine packaged with PyInstaller and embedded locally.",
-    ],
-    changes: [
-      "Established the offline execution boundary — no runtime network calls.",
-      "Added the empty-state graph view and event import flow.",
-    ],
-    fixes: [],
-    security: [],
-    notes:
-      "Foundation release. Establishes the desktop architecture and the packaged local engine.",
-  },
-  {
-    version: "0.5.0",
-    releaseDate: "2025-04-10",
+    releaseDate: "2026-10-15",
     status: "planned",
-    tagline: "Candidate confidence intervals and exportable evidence reports.",
+    tagline: "Planned: macOS x64 Intel binary bundle, Linux package distributions, and batch evaluation exports.",
     artifacts: [],
     highlights: [
-      "Candidate scoring will report confidence intervals, not only point scores.",
-      "Planned: exportable, self-contained evidence reports.",
-      "Planned: update package ingestion for reconstruction knowledge.",
+      "Universal macOS support including Intel x86_64 architecture.",
+      "Linux AppImage and Debian package releases.",
+      "Batch evaluation dataset exports for automated SOC benchmark pipelines.",
     ],
     changes: [],
     fixes: [],
     security: [],
     notes:
-      "Planned release. Dates and contents are indicative and subject to change.",
+      "Planned release for extended platform distribution.",
   },
 ];
 

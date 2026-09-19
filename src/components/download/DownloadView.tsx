@@ -70,17 +70,16 @@ export function DownloadView() {
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
           {/* Left: selector + artifacts */}
           <div className="lg:col-span-8">
-            {/* Preview notice */}
+            {/* Verified Release Notice */}
             <Reveal>
-              <div className="mb-8 flex items-start gap-3 rounded-lg border border-warning/30 bg-surface p-4">
-                <AlertTriangle className="mt-0.5 size-4 shrink-0 text-warning" />
+              <div className="mb-8 flex items-start gap-3 rounded-lg border border-border bg-surface p-4">
+                <ShieldCheck className="mt-0.5 size-4 shrink-0 text-accent" />
                 <div>
-                  <p className="text-sm text-fg/90">
+                  <p className="text-sm font-medium text-fg/90">
                     {RELEASE_DATA_NOTICE}
                   </p>
                   <p className="mt-1 text-xs text-fg-subtle">
-                    Release metadata is structured for a real release backend —
-                    only the file URLs are placeholders.
+                    Official native binaries verified and hosted directly on GitHub Releases. CyberScope runs completely offline on your workstation.
                   </p>
                 </div>
               </div>
