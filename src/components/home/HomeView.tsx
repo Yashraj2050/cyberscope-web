@@ -4,6 +4,8 @@ import { WhatItDoes } from "./WhatItDoes";
 import { TrustBoundary } from "./TrustBoundary";
 import { ArchPreview } from "./ArchPreview";
 import { DownloadCTA } from "./DownloadCTA";
+import { VerificationSection } from "./VerificationSection";
+import { SIHTeamSection } from "./SIHTeamSection";
 
 export function HomeView() {
   return (
@@ -12,7 +14,9 @@ export function HomeView() {
       <ProblemSection />
       <WhatItDoes />
       <TrustBoundary />
+      <VerificationSection />
       <ArchPreview />
+      <SIHTeamSection />
       <DownloadCTA />
     </>
   );

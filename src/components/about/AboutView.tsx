@@ -63,6 +63,9 @@ export function AboutView() {
                   the evidence — and it tells you, explicitly, how confident it
                   is in each one.
                 </p>
+                <p>
+                  Crucially, hidden evaluation ground truth is never provided to the operational reconstruction pipeline. Optional LLM functionality cannot create evidence, alter telemetry, override verification, or convert UNKNOWN into INFERRED.
+                </p>
               </div>
             </Reveal>
           </div>

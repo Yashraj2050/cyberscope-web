@@ -16,8 +16,8 @@ import { REPO_URL, DEMO_VIDEO_URL } from "@/lib/constants";
 const STATUS_STRIP = [
   "Local-first",
   "Offline analysis",
-  "Evidence-driven",
-  "Cross-platform",
+  "Evidence-aware",
+  "Uncertainty-aware",
 ];
 
 function DemoButton() {
@@ -106,7 +106,7 @@ export function Hero() {
                   CyberScope
                 </Eyebrow>
                 <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface-elevated px-3 py-1 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-accent">
-                  SIH 2026 Prototype · Offline-first Desktop Application
+                  SIH26157 — Supervisory Analytics Tool for SOC Assessment (SAT-SA) · Team Meteoric · SIH 2026 Prototype
                 </span>
               </div>
             </Reveal>
@@ -125,9 +125,7 @@ export function Hero() {
             <Reveal delay={120}>
               <div className="space-y-4 max-w-2xl">
                 <p className="text-lg leading-relaxed text-fg-muted md:text-xl">
-                  Reconstruct missing transitions in security telemetry.
-                  Evaluate the evidence.
-                  Know when the evidence is not enough.
+                  CyberScope does not try to guess what happened — it determines what the available evidence can justify saying happened.
                 </p>
                 <p className="border-l-2 border-accent/40 pl-3 font-mono text-xs leading-relaxed text-fg-subtle">
                   The website provides access to the prototype. CyberScope itself runs locally and does not require internet connectivity for the core investigation workflow.

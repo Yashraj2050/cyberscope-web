@@ -8,7 +8,7 @@ export const SITE = {
     "CyberScope is a local-first cybersecurity application for reconstructing missing attack-path transitions and evaluating evidence strength.",
 } as const;
 
-export const REPO_URL = "https://github.com/Yashraj2050/cyberscope";
+export const REPO_URL = "https://github.com/Yashraj2050/cyberscope-web";
 export const DEMO_VIDEO_URL = ""; // Empty string indicates video placeholder state until actual URL is provided
 
 /**
@@ -161,5 +161,43 @@ export const SIX_GAP_SIGNALS = [
     label: "Temporal Consistency",
     description:
       "The temporal ordering between events is impossible or implies a missing intermediate event.",
+  },
+] as const;
+
+export const SEVEN_VERIFICATION_CHECKS = [
+  {
+    key: "temporal",
+    label: "Temporal",
+    description: "Chronological plausibility between the candidate event and its neighbors.",
+  },
+  {
+    key: "host",
+    label: "Host",
+    description: "Consistency of network location and expected host states.",
+  },
+  {
+    key: "user",
+    label: "User",
+    description: "Identity and permission boundaries match the candidate action.",
+  },
+  {
+    key: "process",
+    label: "Process",
+    description: "Lineage and execution environment plausibility.",
+  },
+  {
+    key: "technique",
+    label: "Technique",
+    description: "Alignment with observed MITRE ATT&CK behavior and prerequisites.",
+  },
+  {
+    key: "graph",
+    label: "Graph",
+    description: "Topological reachability and causal dependencies within the attack graph.",
+  },
+  {
+    key: "contradiction",
+    label: "Contradiction",
+    description: "Checking for mutually exclusive events or states in the telemetry.",
   },
 ] as const;

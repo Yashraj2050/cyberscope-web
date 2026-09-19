@@ -86,7 +86,7 @@ export function TrustBoundary() {
 
         <Reveal delay={120}>
           <div className="rounded-lg border border-border bg-surface p-6">
-            <p className="text-base leading-relaxed text-fg/90 md:text-lg">
+            <p className="text-base leading-relaxed text-fg/90 md:text-lg mb-4">
               <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-warning">
                 Principle
               </span>
@@ -94,6 +94,19 @@ export function TrustBoundary() {
               <strong className="text-fg font-semibold">UNKNOWN is an intentional trust boundary.</strong> When the evidence cannot distinguish between competing
               explanations, CyberScope abstains. It is an honest statement about the limit of the available evidence.
             </p>
+            <div className="border-t border-border pt-4">
+              <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-fg-subtle mb-3 block">
+                Safety & Trust Boundaries
+              </span>
+              <ul className="grid gap-2 text-sm text-fg-muted sm:grid-cols-2">
+                <li className="flex gap-2"><span className="text-accent">•</span> A plausible candidate is NOT a proven event.</li>
+                <li className="flex gap-2"><span className="text-accent">•</span> Candidate ranking score is NOT probability.</li>
+                <li className="flex gap-2"><span className="text-accent">•</span> Verification score is NOT probability.</li>
+                <li className="flex gap-2"><span className="text-accent">•</span> Time distance alone never creates an evidence gap.</li>
+                <li className="flex gap-2"><span className="text-accent">•</span> Hidden ground truth is never provided to the pipeline.</li>
+                <li className="flex gap-2"><span className="text-accent">•</span> CyberScope supports the human examiner; it does not replace them.</li>
+              </ul>
+            </div>
           </div>
         </Reveal>
       </div>

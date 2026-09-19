@@ -72,7 +72,7 @@ export function ProblemSection() {
           <div className="rounded-lg border border-border bg-cs-surface p-5 md:p-6 shadow-xl">
             <div className="mb-4 flex items-center justify-between">
               <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-cs-fg-subtle">
-                Event Timeline
+                observed evidence → telemetry gap → observed evidence
               </span>
               <span className="font-mono text-[11px] text-cs-fg-subtle">
                 3 events · 1 gap

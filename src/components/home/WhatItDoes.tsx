@@ -8,12 +8,11 @@ import {
 import { Reveal } from "@/components/primitives/Reveal";
 
 const STAGES = [
-  { label: "Telemetry", sub: "Observed events" },
-  { label: "Event Validation", sub: "Pydantic CyberEvent" },
-  { label: "Attack Graph", sub: "NetworkX" },
-  { label: "Gap Detection", sub: "6 signals" },
-  { label: "Candidate Generation", sub: "Scored transitions" },
-  { label: "Evidence Verification", sub: "Sufficiency check" },
+  { label: "Identify meaningful gaps", sub: "Observed evidence" },
+  { label: "Generate candidates", sub: "Missing transitions" },
+  { label: "Rank by evidence", sub: "Candidate scoring" },
+  { label: "Independently verify", sub: "Seven-check verification" },
+  { label: "Explicitly decide", sub: "OBSERVED/INFERRED/UNKNOWN" },
 ];
 
 export function WhatItDoes() {
