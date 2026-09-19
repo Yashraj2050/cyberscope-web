@@ -208,7 +208,7 @@ export function DownloadView() {
                   checksum listed here before installing.
                 </p>
                 <div className="rounded-md border border-border bg-background p-3">
-                  <code className="block whitespace-pre-wrap font-mono text-[11px] leading-relaxed text-fg-muted">{`# macOS / Linux
+                  <code className="block whitespace-pre-wrap font-mono text-[11px] leading-relaxed text-fg-muted">{`# macOS (Apple Silicon)
 shasum -a 256 <file>
 
 # Windows (PowerShell)

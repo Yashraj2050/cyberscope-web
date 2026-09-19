@@ -55,21 +55,21 @@ export const DOC_SECTIONS: DocSection[] = [
       {
         type: "code",
         lang: "bash",
-        text: "# macOS / Linux\nshasum -a 256 cyberscope-0.4.0-macos-arm64.dmg\n\n# Windows (PowerShell)\nGet-FileHash .\\cyberscope-0.4.0-windows-x64.msi -Algorithm SHA256",
+        text: "# macOS (arm64)\nshasum -a 256 cyberscope_0.1.0_aarch64.dmg\n\n# Windows (PowerShell)\nGet-FileHash .\\cyberscope_0.1.0_x64-setup.exe -Algorithm SHA256",
       },
       {
         type: "callout",
-        tone: "warn",
-        title: "Preview builds",
-        text: "Current artifacts are preview builds. Download links are placeholders until a real release backend is connected. Never disable operating-system verification prompts to install a preview build.",
+        tone: "info",
+        title: "Verified GitHub Release",
+        text: "Official release binaries are hosted directly on GitHub Releases for offline desktop evaluation. Always verify the SHA-256 checksum before running the application.",
       },
       { type: "h", text: "Platform notes" },
       {
         type: "list",
         items: [
-          "Windows: use the MSI installer for per-machine install, or the EXE for per-user install.",
-          "macOS: the DMG targets Apple Silicon (arm64) and Intel (x64) separately.",
-          "Linux: an AppImage and a .deb are provided for x64.",
+          "Windows: use the setup EXE (per-user) or MSI installer (x64) for local installation.",
+          "macOS: the DMG is built natively for Apple Silicon (arm64).",
+          "Linux: planned for future releases; no downloadable binary is provided in the current prototype.",
         ],
       },
     ],

@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ChevronDown, Download, Menu, X } from "lucide-react";
+import { ChevronDown, Download, Menu, X, Github } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { NAV_ITEMS, SECONDARY_NAV, ROUTE_META } from "@/lib/constants";
+import { NAV_ITEMS, SECONDARY_NAV, ROUTE_META, REPO_URL } from "@/lib/constants";
 import type { RouteId } from "@/lib/types";
 import { routerHref } from "@/lib/router";
 import { Container } from "@/components/primitives/ui";
@@ -234,6 +234,17 @@ export function Navbar({
 
           <div className="flex items-center gap-2">
             <a
+              href={REPO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden size-9 items-center justify-center rounded-md border border-border text-fg-muted transition-colors hover:border-border-strong hover:text-fg sm:inline-flex"
+              aria-label="GitHub Repository"
+              title="GitHub Repository"
+            >
+              <Github className="size-4" />
+            </a>
+
+            <a
               href={routerHref("download")}
               onClick={() => onNavigate("download")}
               className={cn(
@@ -319,9 +330,18 @@ export function Navbar({
                 </a>
               ))}
               <a
+                href={REPO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 flex items-center justify-center gap-2 rounded-md border border-border bg-surface-elevated px-4 py-2 text-sm text-fg-muted transition-colors hover:text-fg"
+              >
+                <Github className="size-4" />
+                GitHub Repository
+              </a>
+              <a
                 href={routerHref("download")}
                 onClick={() => go("download")}
-                className="mt-3 inline-flex items-center justify-center gap-2 rounded-md bg-accent px-4 py-2.5 text-sm font-medium text-[#06141a]"
+                className="mt-2 inline-flex items-center justify-center gap-2 rounded-md bg-accent px-4 py-2.5 text-sm font-medium text-[#06141a]"
               >
                 <Download className="size-4" />
                 Download CyberScope

@@ -4,7 +4,7 @@ import type { Release } from "@/lib/types";
  * CyberScope release metadata.
  *
  * All verified binary packages are published and hosted directly on GitHub Releases:
- * https://github.com/Yashraj2050/cyberscope/releases
+ * https://github.com/Yashraj2050/cyberscope/releases/tag/v0.1.0
  */
 
 export const RELEASE_DATA_SOURCE = "github-release" as const;

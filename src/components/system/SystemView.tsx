@@ -18,7 +18,7 @@ const INSTALL_REQS: Req[] = [
   {
     icon: MonitorSmartphone,
     label: "Operating system",
-    value: "Windows 10/11 · macOS 12+ · Linux (Ubuntu 22.04+ or equivalent)",
+    value: "Windows 10/11 · macOS 12+ (Linux support planned)",
   },
   {
     icon: Cpu,

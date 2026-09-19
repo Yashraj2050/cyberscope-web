@@ -20,7 +20,7 @@ export function DownloadCTA() {
                 Run attack-path reconstruction locally.
               </h2>
               <p className="text-base leading-relaxed text-fg-muted">
-                Download the desktop application for Windows, macOS, or Linux.
+                Download the desktop application for Windows or macOS (Apple Silicon).
                 The analysis engine runs entirely on your machine.
               </p>
               <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-fg-subtle">
